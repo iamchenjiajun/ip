@@ -7,6 +7,12 @@ public class Duke {
     }
 
     public static void greet() {
+        String logo = " ____        _        \n"
+                + "|  _ \\ _   _| | _____ \n"
+                + "| | | | | | | |/ / _ \\\n"
+                + "| |_| | |_| |   <  __/\n"
+                + "|____/ \\__,_|_|\\_\\___|\n";
+        System.out.println("Hello from\n" + logo);
         showDivider();
         System.out.println("Hello! I'm Duke!");
         System.out.println("What can I do for you?");
@@ -29,13 +35,6 @@ public class Duke {
     }
 
     public static void main(String[] args) {
-        String logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
-        System.out.println("Hello from\n" + logo);
-
         Scanner in = new Scanner(System.in);
         boolean isBye = false;
         String[] tasks = new String[100];
