@@ -22,10 +22,6 @@ public class Duke {
         System.out.println("Bye. Hope to see you again soon!");
     }
 
-    public static void echo(String line) {
-        System.out.println(line);
-    }
-
     public static void printTasks(Task[] tasks, int tasksCount) {
         for (int i=0; i<tasksCount; i++) {
             int index = i+1;
