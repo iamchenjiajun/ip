@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Duke {
 
     public static void showDivider() {
-        System.out.println("____________________________________________________________");
+        System.out.println(">>>>++----------------------------------");
     }
 
     public static void greet() {
