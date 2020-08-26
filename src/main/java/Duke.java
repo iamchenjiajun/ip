@@ -23,9 +23,9 @@ public class Duke {
     }
 
     public static void printTasks(Task[] tasks, int tasksCount) {
-        for (int i=0; i<tasksCount; i++) {
-            int index = i+1;
-            System.out.println(index + "."+ tasks[i].getStatusIcon() + " " + tasks[i].getDescription());
+        for (int i = 0; i < tasksCount; i++) {
+            int index = i + 1;
+            System.out.println(index + "." + tasks[i].getStatusIcon() + " " + tasks[i].getDescription());
         }
     }
 
@@ -48,9 +48,9 @@ public class Duke {
                 printTasks(tasks, tasksCount);
             } else if (line.startsWith("done")) {
                 int argument = Integer.parseInt(line.split(" ")[1]);
-                tasks[argument-1].markAsDone();
+                tasks[argument - 1].markAsDone();
                 System.out.println("Nice! I've marked this task as done:");
-                System.out.println(tasks[argument-1].getStatusIcon() + " " + tasks[argument-1].getDescription());
+                System.out.println(tasks[argument - 1].getStatusIcon() + " " + tasks[argument - 1].getDescription());
             } else {
                 tasks[tasksCount] = new Task(line);
                 tasksCount++;
