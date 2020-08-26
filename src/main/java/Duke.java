@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Duke {
-
     public static void showDivider() {
         System.out.println(">>>>++----------------------------------");
     }
@@ -27,17 +26,17 @@ public class Duke {
         System.out.println(line);
     }
 
-    public static void printTasks(String[] tasks, int tasksCount) {
+    public static void printTasks(Task[] tasks, int tasksCount) {
         for (int i=0; i<tasksCount; i++) {
             int index = i+1;
-            System.out.println(index + ". " + tasks[i]);
+            System.out.println(index + "."+ tasks[i].getStatusIcon() + " " + tasks[i].getDescription());
         }
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         boolean isBye = false;
-        String[] tasks = new String[100];
+        Task[] tasks = new Task[100];
         int tasksCount = 0;
 
         greet();
@@ -46,23 +45,23 @@ public class Duke {
             String line = in.nextLine();
             showDivider();
 
-            switch(line) {
-            case "bye":
+            if (line.equals("bye")) {
                 isBye = true;
                 bye();
-                break;
-            case "list":
+            } else if (line.equals("list")) {
                 printTasks(tasks, tasksCount);
-                break;
-            default:
-                tasks[tasksCount] = line;
+            } else if (line.startsWith("done")) {
+                int argument = Integer.parseInt(line.split(" ")[1]);
+                tasks[argument-1].markAsDone();
+                System.out.println("Nice! I've marked this task as done:");
+                System.out.println(tasks[argument-1].getStatusIcon() + " " + tasks[argument-1].getDescription());
+            } else {
+                tasks[tasksCount] = new Task(line);
                 tasksCount++;
                 System.out.println("Added " + line);
-                break;
             }
 
             showDivider();
         }
     }
-
 }
