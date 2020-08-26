@@ -21,6 +21,13 @@ public class Duke {
         System.out.println(line);
     }
 
+    public static void printTasks(String[] tasks, int tasksCount) {
+        for (int i=0; i<tasksCount; i++) {
+            int index = i+1;
+            System.out.println(index + ". " + tasks[i]);
+        }
+    }
+
     public static void main(String[] args) {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -31,6 +38,8 @@ public class Duke {
 
         Scanner in = new Scanner(System.in);
         boolean isBye = false;
+        String[] tasks = new String[100];
+        int tasksCount = 0;
 
         greet();
 
@@ -43,8 +52,13 @@ public class Duke {
                 isBye = true;
                 bye();
                 break;
+            case "list":
+                printTasks(tasks, tasksCount);
+                break;
             default:
-                echo(line);
+                tasks[tasksCount] = line;
+                tasksCount++;
+                System.out.println("Added " + line);
                 break;
             }
 
