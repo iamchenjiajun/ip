@@ -39,22 +39,44 @@ public class Duke {
 
         while (!isBye) {
             String line = in.nextLine();
+            String command = line.split(" ")[0];
+            String argumentString = line.replaceFirst(command + " ", "");
             showDivider();
 
-            if (line.equals("bye")) {
+            if (command.equals("bye")) {
                 isBye = true;
                 bye();
-            } else if (line.equals("list")) {
+            } else if (command.equals("list")) {
                 printTasks(tasks, tasksCount);
-            } else if (line.startsWith("done")) {
-                int argument = Integer.parseInt(line.split(" ")[1]);
-                tasks[argument - 1].markAsDone();
+            } else if (command.equals("done")) {
+                int listNumber = Integer.parseInt(line.split(" ")[1]);
+                tasks[listNumber - 1].markAsDone();
                 System.out.println("Nice! I've marked this task as done:");
-                System.out.println(tasks[argument - 1]);
+                System.out.println(tasks[listNumber - 1]);
+            } else if (command.equals("todo")) {
+                tasks[tasksCount] = new Todo(argumentString);
+                System.out.println("Added " + argumentString + " as a Todo.");
+                System.out.println(tasks[tasksCount]);
+                tasksCount++;
+            } else if (command.equals("deadline")) {
+                String by = argumentString.split(" /by ")[1];
+                String description = argumentString.replace(" /by " + by, "");
+                tasks[tasksCount] = new Deadline(description, by);
+                System.out.println("Added " + description + " as a Deadline.");
+                System.out.println(tasks[tasksCount]);
+                tasksCount++;
+            } else if (command.equals("event")) {
+                String at = argumentString.split(" /at ")[1];
+                String description = argumentString.replace(" /at " + at, "");
+                tasks[tasksCount] = new Event(description, at);
+                System.out.println("Added " + line + " as an Event.");
+                System.out.println(tasks[tasksCount]);
+                tasksCount++;
             } else {
                 tasks[tasksCount] = new Task(line);
+                System.out.println("Added " + line + " as a Task.");
+                System.out.println(tasks[tasksCount]);
                 tasksCount++;
-                System.out.println("Added " + line);
             }
 
             showDivider();
