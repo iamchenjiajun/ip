@@ -1,0 +1,12 @@
+todo read book
+deadline do homework /by next monday
+list
+event go to school /at tomorrow 1pm
+list
+done 1
+done 3
+list
+done 2
+done 2
+list
+bye

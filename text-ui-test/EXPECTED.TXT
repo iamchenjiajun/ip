@@ -5,3 +5,57 @@ Hello from
 | |_| | |_| |   <  __/
 |____/ \__,_|_|\_\___|
 
+>>>>++----------------------------------
+Hello! I'm Duke!
+What can I do for you?
+>>>>++----------------------------------
+>>>>++----------------------------------
+Added read book as a Todo.
+[T][âœ—] read book
+>>>>++----------------------------------
+>>>>++----------------------------------
+Added do homework as a Deadline.
+[D][âœ—] do homework (by: next monday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+1.[T][âœ—] read book
+2.[D][âœ—] do homework (by: next monday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Added event go to school /at tomorrow 1pm as an Event.
+[E][âœ—] go to school (at: tomorrow 1pm)
+>>>>++----------------------------------
+>>>>++----------------------------------
+1.[T][âœ—] read book
+2.[D][âœ—] do homework (by: next monday)
+3.[E][âœ—] go to school (at: tomorrow 1pm)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Nice! I've marked this task as done:
+[T][âœ“] read book
+>>>>++----------------------------------
+>>>>++----------------------------------
+Nice! I've marked this task as done:
+[E][âœ“] go to school (at: tomorrow 1pm)
+>>>>++----------------------------------
+>>>>++----------------------------------
+1.[T][âœ“] read book
+2.[D][âœ—] do homework (by: next monday)
+3.[E][âœ“] go to school (at: tomorrow 1pm)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Nice! I've marked this task as done:
+[D][âœ“] do homework (by: next monday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Nice! I've marked this task as done:
+[D][âœ“] do homework (by: next monday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+1.[T][âœ“] read book
+2.[D][âœ“] do homework (by: next monday)
+3.[E][âœ“] go to school (at: tomorrow 1pm)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Bye. Hope to see you again soon!
+>>>>++----------------------------------
