@@ -41,42 +41,51 @@ public class Duke {
             String line = in.nextLine();
             String command = line.split(" ")[0];
             String argumentString = line.replaceFirst(command + " ", "");
+            String description;
             showDivider();
 
-            if (command.equals("bye")) {
+            switch (command) {
+            case "list":
+                printTasks(tasks, tasksCount);
+                break;
+            case "bye":
                 isBye = true;
                 bye();
-            } else if (command.equals("list")) {
-                printTasks(tasks, tasksCount);
-            } else if (command.equals("done")) {
+                break;
+            case "done":
                 int listNumber = Integer.parseInt(line.split(" ")[1]);
                 tasks[listNumber - 1].markAsDone();
                 System.out.println("Nice! I've marked this task as done:");
                 System.out.println(tasks[listNumber - 1]);
-            } else if (command.equals("todo")) {
+                break;
+            case "todo":
                 tasks[tasksCount] = new Todo(argumentString);
                 System.out.println("Added " + argumentString + " as a Todo.");
                 System.out.println(tasks[tasksCount]);
                 tasksCount++;
-            } else if (command.equals("deadline")) {
+                break;
+            case "deadline":
                 String by = argumentString.split(" /by ")[1];
-                String description = argumentString.replace(" /by " + by, "");
+                description = argumentString.replace(" /by " + by, "");
                 tasks[tasksCount] = new Deadline(description, by);
                 System.out.println("Added " + description + " as a Deadline.");
                 System.out.println(tasks[tasksCount]);
                 tasksCount++;
-            } else if (command.equals("event")) {
+                break;
+            case "event":
                 String at = argumentString.split(" /at ")[1];
-                String description = argumentString.replace(" /at " + at, "");
+                description = argumentString.replace(" /at " + at, "");
                 tasks[tasksCount] = new Event(description, at);
                 System.out.println("Added " + line + " as an Event.");
                 System.out.println(tasks[tasksCount]);
                 tasksCount++;
-            } else {
+                break;
+            default:
                 tasks[tasksCount] = new Task(line);
                 System.out.println("Added " + line + " as a Task.");
                 System.out.println(tasks[tasksCount]);
                 tasksCount++;
+                break;
             }
 
             showDivider();
