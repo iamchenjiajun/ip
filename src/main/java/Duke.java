@@ -22,18 +22,10 @@ public class Duke {
         System.out.println("Bye. Hope to see you again soon!");
     }
 
-    public static void printTasks(Task[] tasks, int tasksCount) {
-        for (int i = 0; i < tasksCount; i++) {
-            int index = i + 1;
-            System.out.println(index + "." + tasks[i]);
-        }
-    }
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         boolean isBye = false;
-        Task[] tasks = new Task[100];
-        int tasksCount = 0;
+        TaskManager taskManager = new TaskManager();
 
         greet();
 
@@ -42,11 +34,12 @@ public class Duke {
             String command = line.split(" ")[0];
             String argumentString = line.replaceFirst(command + " ", "");
             String description;
+
             showDivider();
 
             switch (command) {
             case "list":
-                printTasks(tasks, tasksCount);
+                taskManager.printTasks();
                 break;
             case "bye":
                 isBye = true;
@@ -54,37 +47,23 @@ public class Duke {
                 break;
             case "done":
                 int listNumber = Integer.parseInt(line.split(" ")[1]);
-                tasks[listNumber - 1].markAsDone();
-                System.out.println("Nice! I've marked this task as done:");
-                System.out.println(tasks[listNumber - 1]);
+                taskManager.markAsDone(listNumber - 1);
                 break;
             case "todo":
-                tasks[tasksCount] = new Todo(argumentString);
-                System.out.println("Added " + argumentString + " as a Todo.");
-                System.out.println(tasks[tasksCount]);
-                tasksCount++;
+                taskManager.addTodo(argumentString);
                 break;
             case "deadline":
                 String by = argumentString.split(" /by ")[1];
                 description = argumentString.replace(" /by " + by, "");
-                tasks[tasksCount] = new Deadline(description, by);
-                System.out.println("Added " + description + " as a Deadline.");
-                System.out.println(tasks[tasksCount]);
-                tasksCount++;
+                taskManager.addDeadline(description, by);
                 break;
             case "event":
                 String at = argumentString.split(" /at ")[1];
                 description = argumentString.replace(" /at " + at, "");
-                tasks[tasksCount] = new Event(description, at);
-                System.out.println("Added " + description + " as an Event.");
-                System.out.println(tasks[tasksCount]);
-                tasksCount++;
+                taskManager.addEvent(description, at);
                 break;
             default:
-                tasks[tasksCount] = new Task(line);
-                System.out.println("Added " + line + " as a Task.");
-                System.out.println(tasks[tasksCount]);
-                tasksCount++;
+                taskManager.addTask(line);
                 break;
             }
 
