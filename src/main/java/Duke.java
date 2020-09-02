@@ -1,6 +1,13 @@
 import java.util.Scanner;
 
 public class Duke {
+    public static final String COMMAND_LIST = "list";
+    public static final String COMMAND_BYE = "bye";
+    public static final String COMMAND_DONE = "done";
+    public static final String COMMAND_ADD_TODO = "todo";
+    public static final String COMMAND_ADD_DEADLINE = "deadline";
+    public static final String COMMAND_ADD_EVENT = "event";
+
     public static void showDivider() {
         System.out.println(">>>>++----------------------------------");
     }
@@ -38,26 +45,26 @@ public class Duke {
             showDivider();
 
             switch (command) {
-            case "list":
+            case COMMAND_LIST:
                 taskManager.printTasks();
                 break;
-            case "bye":
+            case COMMAND_BYE:
                 isBye = true;
                 bye();
                 break;
-            case "done":
+            case COMMAND_DONE:
                 int listNumber = Integer.parseInt(line.split(" ")[1]);
                 taskManager.markAsDone(listNumber - 1);
                 break;
-            case "todo":
+            case COMMAND_ADD_TODO:
                 taskManager.addTodo(argumentString);
                 break;
-            case "deadline":
+            case COMMAND_ADD_DEADLINE:
                 String by = argumentString.split(" /by ")[1];
                 description = argumentString.replace(" /by " + by, "");
                 taskManager.addDeadline(description, by);
                 break;
-            case "event":
+            case COMMAND_ADD_EVENT:
                 String at = argumentString.split(" /at ")[1];
                 description = argumentString.replace(" /at " + at, "");
                 taskManager.addEvent(description, at);
