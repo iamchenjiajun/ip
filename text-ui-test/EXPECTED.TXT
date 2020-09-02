@@ -22,7 +22,7 @@ Added do homework as a Deadline.
 2.[D][âœ—] do homework (by: next monday)
 >>>>++----------------------------------
 >>>>++----------------------------------
-Added event go to school /at tomorrow 1pm as an Event.
+Added go to school as an Event.
 [E][âœ—] go to school (at: tomorrow 1pm)
 >>>>++----------------------------------
 >>>>++----------------------------------

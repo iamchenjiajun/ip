@@ -76,7 +76,7 @@ public class Duke {
                 String at = argumentString.split(" /at ")[1];
                 description = argumentString.replace(" /at " + at, "");
                 tasks[tasksCount] = new Event(description, at);
-                System.out.println("Added " + line + " as an Event.");
+                System.out.println("Added " + description + " as an Event.");
                 System.out.println(tasks[tasksCount]);
                 tasksCount++;
                 break;
