@@ -8,25 +8,30 @@ public class Duke {
     public static final String COMMAND_ADD_DEADLINE = "deadline";
     public static final String COMMAND_ADD_EVENT = "event";
 
+    public static final String DUKE_DIVIDER = ">>>>++----------------------------------";
+    public static final String DUKE_GREETINGS = "Hello! I'm Duke!\n"
+            + "What can I do for you?";
+    public static final String DUKE_LOGO = "Hello from\n"
+            + " ____        _        \n"
+            + "|  _ \\ _   _| | _____ \n"
+            + "| | | | | | | |/ / _ \\\n"
+            + "| |_| | |_| |   <  __/\n"
+            + "|____/ \\__,_|_|\\_\\___|\n";
+    public static final String DUKE_BYE = "Bye. Hope to see you again soon!";
+
     public static void showDivider() {
-        System.out.println(">>>>++----------------------------------");
+        System.out.println(DUKE_DIVIDER);
     }
 
     public static void greet() {
-        String logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
-        System.out.println("Hello from\n" + logo);
+        System.out.println(DUKE_LOGO);
         showDivider();
-        System.out.println("Hello! I'm Duke!");
-        System.out.println("What can I do for you?");
+        System.out.println(DUKE_GREETINGS);
         showDivider();
     }
 
     public static void bye() {
-        System.out.println("Bye. Hope to see you again soon!");
+        System.out.println(DUKE_BYE);
     }
 
     public static void main(String[] args) {
