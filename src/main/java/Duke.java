@@ -24,6 +24,7 @@ public class Duke {
     public static final String ERROR_NO_EVENT = "☹ OOPS!!! Your Event doesn't contain a date";
     public static final String ERROR_NO_DONE_ARGUMENT = "☹ OOPS!!! You need an argument to be done with!";
     public static final String ERROR_DONE_ARGUMENT = "☹ OOPS!!! Your done argument is invalid!";
+    public static final String ERROR_UNKNOWN_COMMAND = "☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
 
     private static final TaskManager taskManager = new TaskManager();
 
@@ -52,7 +53,7 @@ public class Duke {
     public static void checkValidInteger(String integerString, String errorMessage) throws InvalidArgumentException {
         try {
             Integer.parseInt(integerString);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new InvalidArgumentException(errorMessage);
         }
     }
