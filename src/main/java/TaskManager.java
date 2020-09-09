@@ -21,13 +21,6 @@ public class TaskManager {
         System.out.println(tasks[index]);
     }
 
-    public void addTask(String description) {
-        tasks[tasksCount] = new Task(description);
-        System.out.println("Added " + description + " as a Task.");
-        System.out.println(tasks[tasksCount]);
-        tasksCount++;
-    }
-
     public void addDeadline(String description, String by) {
         tasks[tasksCount] = new Deadline(description, by);
         System.out.println("Added " + description + " as a Deadline.");
