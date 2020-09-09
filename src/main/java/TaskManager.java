@@ -48,4 +48,8 @@ public class TaskManager {
         System.out.println(tasks[tasksCount]);
         tasksCount++;
     }
+
+    public int getTasksCount() {
+        return tasksCount;
+    }
 }
