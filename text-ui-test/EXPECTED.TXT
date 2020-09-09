@@ -57,5 +57,91 @@ Nice! I've marked this task as done:
 3.[E][âœ“] go to school (at: tomorrow 1pm)
 >>>>++----------------------------------
 >>>>++----------------------------------
+â˜¹ OOPS!!! The description of a Todo cannot be empty.
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! I'm sorry, but I don't know what that means :-(
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! The description of a Deadline cannot be empty.
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! The description of an Event cannot be empty.
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your Deadline doesn't contain a deadline!
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your Deadline doesn't contain a deadline!
+>>>>++----------------------------------
+>>>>++----------------------------------
+Added write user stories as a Deadline.
+[D][âœ—] write user stories (by: thursday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your Event doesn't contain a date
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your Event doesn't contain a date
+>>>>++----------------------------------
+>>>>++----------------------------------
+Added meet up with cs2113 group as an Event.
+[E][âœ—] meet up with cs2113 group (at: 11am)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! I'm sorry, but I don't know what that means :-(
+>>>>++----------------------------------
+>>>>++----------------------------------
+1.[T][âœ“] read book
+2.[D][âœ“] do homework (by: next monday)
+3.[E][âœ“] go to school (at: tomorrow 1pm)
+4.[D][âœ—] write user stories (by: thursday)
+5.[E][âœ—] meet up with cs2113 group (at: 11am)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! You need an argument to be done with!
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your done argument is invalid!
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your done argument is invalid!
+>>>>++----------------------------------
+>>>>++----------------------------------
+1.[T][âœ“] read book
+2.[D][âœ“] do homework (by: next monday)
+3.[E][âœ“] go to school (at: tomorrow 1pm)
+4.[D][âœ—] write user stories (by: thursday)
+5.[E][âœ—] meet up with cs2113 group (at: 11am)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Nice! I've marked this task as done:
+[E][âœ“] meet up with cs2113 group (at: 11am)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Nice! I've marked this task as done:
+[D][âœ“] write user stories (by: thursday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+1.[T][âœ“] read book
+2.[D][âœ“] do homework (by: next monday)
+3.[E][âœ“] go to school (at: tomorrow 1pm)
+4.[D][âœ“] write user stories (by: thursday)
+5.[E][âœ“] meet up with cs2113 group (at: 11am)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your done argument is invalid!
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your done argument is invalid!
+>>>>++----------------------------------
+>>>>++----------------------------------
+1.[T][âœ“] read book
+2.[D][âœ“] do homework (by: next monday)
+3.[E][âœ“] go to school (at: tomorrow 1pm)
+4.[D][âœ“] write user stories (by: thursday)
+5.[E][âœ“] meet up with cs2113 group (at: 11am)
+>>>>++----------------------------------
+>>>>++----------------------------------
 Bye. Hope to see you again soon!
 >>>>++----------------------------------
