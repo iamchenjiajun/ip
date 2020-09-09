@@ -19,7 +19,10 @@ public class Duke {
             + "|____/ \\__,_|_|\\_\\___|\n";
     public static final String DUKE_BYE = "Bye. Hope to see you again soon!";
 
-    public static final String ERROR_NO_DESCRIPTION = "☹ OOPS!!! The description of a task cannot be empty.";
+    public static final String ERROR_TODO_NO_DESCRIPTION = "☹ OOPS!!! The description of a Todo cannot be empty.";
+    public static final String ERROR_DEADLINE_NO_DESCRIPTION = "☹ OOPS!!! The description of a Deadline cannot be" +
+            " empty.";
+    public static final String ERROR_EVENT_NO_DESCRIPTION = "☹ OOPS!!! The description of an Event cannot be empty.";
     public static final String ERROR_NO_DEADLINE = "☹ OOPS!!! Your Deadline doesn't contain a deadline!";
     public static final String ERROR_NO_EVENT = "☹ OOPS!!! Your Event doesn't contain a date";
     public static final String ERROR_NO_DONE_ARGUMENT = "☹ OOPS!!! You need an argument to be done with!";
@@ -89,19 +92,19 @@ public class Duke {
             taskManager.markAsDone(listNumber - 1);
             break;
         case COMMAND_ADD_TODO:
-            checkArgumentsLength(arguments.length, 2, ERROR_NO_DESCRIPTION);
+            checkArgumentsLength(arguments.length, 2, ERROR_TODO_NO_DESCRIPTION);
             taskManager.addTodo(argumentString);
             break;
         case COMMAND_ADD_DEADLINE:
             String[] deadlineDetails = argumentString.split(" /by ");
-            checkArgumentsLength(arguments.length, 2, ERROR_NO_DESCRIPTION);
+            checkArgumentsLength(arguments.length, 2, ERROR_DEADLINE_NO_DESCRIPTION);
             checkArgumentsLength(deadlineDetails.length, 2, ERROR_NO_DEADLINE);
             description = argumentString.replace(" /by " + deadlineDetails[1], "");
             taskManager.addDeadline(description, deadlineDetails[1]);
             break;
         case COMMAND_ADD_EVENT:
             String[] eventDetails = argumentString.split(" /at ");
-            checkArgumentsLength(arguments.length, 2, ERROR_NO_DESCRIPTION);
+            checkArgumentsLength(arguments.length, 2, ERROR_EVENT_NO_DESCRIPTION);
             checkArgumentsLength(eventDetails.length, 2, ERROR_NO_EVENT);
             description = argumentString.replace(" /at " + eventDetails[1], "");
             taskManager.addEvent(description, eventDetails[1]);
