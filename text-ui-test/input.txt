@@ -9,4 +9,26 @@ list
 done 2
 done 2
 list
+todo
+blah
+deadline
+event
+deadline write user stories
+deadline write user stories /by
+deadline write user stories /by thursday
+event meet up with cs2113 group
+event meet up with cs2113 group /at
+event meet up with cs2113 group /at 11am
+hello world
+list
+done
+done 10
+done 6
+list
+done 5
+done 4
+list
+done x
+done 2x
+list
 bye
