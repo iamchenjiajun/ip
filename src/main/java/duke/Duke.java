@@ -12,6 +12,7 @@ public class Duke {
     public static final String COMMAND_ADD_TODO = "todo";
     public static final String COMMAND_ADD_DEADLINE = "deadline";
     public static final String COMMAND_ADD_EVENT = "event";
+    public static final String COMMAND_DELETE = "delete";
 
     public static final String DUKE_DIVIDER = ">>>>++----------------------------------";
     public static final String DUKE_GREETINGS = "Hello! I'm Duke!\n"
@@ -92,9 +93,16 @@ public class Duke {
         case COMMAND_DONE:
             checkArgumentsLength(arguments.length, 2, ERROR_NO_DONE_ARGUMENT);
             checkValidInteger(arguments[1], ERROR_DONE_ARGUMENT);
-            int listNumber = Integer.parseInt(arguments[1]);
-            checkValidIntegerRange(listNumber, taskManager.getTasksCount(), ERROR_DONE_ARGUMENT);
-            taskManager.markAsDone(listNumber - 1);
+            int doneIndex = Integer.parseInt(arguments[1]);
+            checkValidIntegerRange(doneIndex, taskManager.getTasksCount(), ERROR_DONE_ARGUMENT);
+            taskManager.markAsDone(doneIndex - 1);
+            break;
+        case COMMAND_DELETE:
+            checkArgumentsLength(arguments.length, 2, ERROR_NO_DONE_ARGUMENT);
+            checkValidInteger(arguments[1], ERROR_DONE_ARGUMENT);
+            int deleteIndex = Integer.parseInt(arguments[1]);
+            checkValidIntegerRange(deleteIndex, taskManager.getTasksCount(), ERROR_DONE_ARGUMENT);
+            taskManager.deleteTask(deleteIndex - 1);
             break;
         case COMMAND_ADD_TODO:
             checkArgumentsLength(arguments.length, 2, ERROR_TODO_NO_DESCRIPTION);

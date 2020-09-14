@@ -21,6 +21,13 @@ public class TaskManager {
         }
     }
 
+    public void deleteTask(int index) {
+        System.out.println("Noted. I've removed this task:");
+        System.out.println(tasks.get(index));
+        tasks.remove(index);
+        System.out.println("Now you have " + getTasksCount() + " tasks in the list");
+    }
+
     public void markAsDone(int index) {
         tasks.get(index).markAsDone();
         System.out.println("Nice! I've marked this task as done:");
