@@ -1,8 +1,10 @@
 package duke;
 
+import duke.exception.FileFormatException;
 import duke.exception.InvalidArgumentException;
 import duke.exception.UnknownCommandException;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Duke {
@@ -33,6 +35,9 @@ public class Duke {
     public static final String ERROR_NO_DONE_ARGUMENT = "☹ OOPS!!! You need an argument to be done with!";
     public static final String ERROR_DONE_ARGUMENT = "☹ OOPS!!! Your done argument is invalid!";
     public static final String ERROR_UNKNOWN_COMMAND = "☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
+    public static final String ERROR_TASK_LOAD = "☹ OOPS!!! I'm sorry, but I couldn't load the tasks :-(";
+    public static final String ERROR_TASK_FORMAT = "☹ OOPS!!! Your tasks are in the wrong format :-(";
+    public static final String ERROR_TASK_SAVE = "☹ OOPS!!! I'm sorry, but I couldn't save the tasks :-(";
 
     private static final TaskManager taskManager = new TaskManager();
 
@@ -94,25 +99,25 @@ public class Duke {
             checkValidInteger(arguments[1], ERROR_DONE_ARGUMENT);
             int listNumber = Integer.parseInt(arguments[1]);
             checkValidIntegerRange(listNumber, taskManager.getTasksCount(), ERROR_DONE_ARGUMENT);
-            taskManager.markAsDone(listNumber - 1);
+            taskManager.markAsDone(listNumber - 1, true);
             break;
         case COMMAND_ADD_TODO:
             checkArgumentsLength(arguments.length, 2, ERROR_TODO_NO_DESCRIPTION);
-            taskManager.addTodo(argumentString);
+            taskManager.addTodo(argumentString, true);
             break;
         case COMMAND_ADD_DEADLINE:
             String[] deadlineDetails = argumentString.split(" /by ");
             checkArgumentsLength(arguments.length, 2, ERROR_DEADLINE_NO_DESCRIPTION);
             checkArgumentsLength(deadlineDetails.length, 2, ERROR_NO_DEADLINE);
             description = argumentString.replace(" /by " + deadlineDetails[1], "");
-            taskManager.addDeadline(description, deadlineDetails[1]);
+            taskManager.addDeadline(description, deadlineDetails[1], true);
             break;
         case COMMAND_ADD_EVENT:
             String[] eventDetails = argumentString.split(" /at ");
             checkArgumentsLength(arguments.length, 2, ERROR_EVENT_NO_DESCRIPTION);
             checkArgumentsLength(eventDetails.length, 2, ERROR_NO_EVENT);
             description = argumentString.replace(" /at " + eventDetails[1], "");
-            taskManager.addEvent(description, eventDetails[1]);
+            taskManager.addEvent(description, eventDetails[1], true);
             break;
         default:
             throw new UnknownCommandException();
@@ -126,6 +131,19 @@ public class Duke {
 
         greet();
 
+        // load tasks from file
+        try {
+            taskManager.checkFileExists();
+            taskManager.loadTasks();
+            System.out.println("Tasks loaded successfully.");
+            showDivider();
+        } catch (IOException e) {
+            System.out.println(ERROR_TASK_LOAD);
+        } catch (FileFormatException e) {
+            System.out.println(ERROR_TASK_FORMAT);
+        }
+
+        // parse and execute commands
         do {
             String line = in.nextLine();
             isBye = line.equals(COMMAND_BYE);
@@ -140,5 +158,12 @@ public class Duke {
             }
             showDivider();
         } while (!isBye);
+
+        // save tasks to file
+        try {
+            taskManager.saveTasks();
+        } catch (IOException e) {
+            System.out.println(ERROR_TASK_SAVE);
+        }
     }
 }

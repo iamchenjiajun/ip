@@ -8,6 +8,11 @@ public class Deadline extends Task {
         this.by = by;
     }
 
+    public String toSaveString() {
+        String isDoneString = (isDone ? "1" : "0");
+        return "D | " + isDoneString + " | " + description + " | " + by;
+    }
+
     @Override
     public String toString() {
         return "[D]" + super.toString() + " (by: " + by + ")";

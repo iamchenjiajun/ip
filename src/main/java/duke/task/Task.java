@@ -21,6 +21,8 @@ public abstract class Task {
         return description;
     }
 
+    public abstract String toSaveString();
+
     @Override
     public String toString() {
         return getStatusIcon() + " " + getDescription();
