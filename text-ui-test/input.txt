@@ -31,4 +31,8 @@ list
 done x
 done 2x
 list
+delete 6
+delete 0
+delete 5
+delete 1
 bye
