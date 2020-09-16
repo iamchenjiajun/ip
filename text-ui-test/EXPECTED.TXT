@@ -9,6 +9,8 @@ Hello from
 Hello! I'm Duke!
 What can I do for you?
 >>>>++----------------------------------
+Tasks loaded successfully.
+>>>>++----------------------------------
 >>>>++----------------------------------
 Added read book as a Todo.
 [T][âœ—] read book
