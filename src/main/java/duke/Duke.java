@@ -3,12 +3,16 @@ package duke;
 import duke.exception.FileFormatException;
 import duke.exception.InvalidArgumentException;
 import duke.exception.UnknownCommandException;
+import duke.storage.Storage;
 import duke.ui.Ui;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Duke {
+    public static final String FILE_LOCATION = "./data/";
+    public static final String FILE_NAME = "duke.txt";
+
     public static final String COMMAND_LIST = "list";
     public static final String COMMAND_BYE = "bye";
     public static final String COMMAND_DONE = "done";
@@ -30,12 +34,29 @@ public class Duke {
     public static final String ERROR_TASK_FORMAT = "☹ OOPS!!! Your tasks are in the wrong format :-(";
     public static final String ERROR_TASK_SAVE = "☹ OOPS!!! I'm sorry, but I couldn't save the tasks :-(";
 
-    private final TaskManager taskManager;
+    private TaskManager taskManager;
     private final Ui ui;
+    private final Storage storage;
 
     public Duke() {
-        taskManager = new TaskManager();
         ui = new Ui();
+        storage = new Storage(FILE_LOCATION, FILE_NAME);
+
+        ui.greet();
+
+        try {
+            storage.checkFileExists();
+            taskManager = new TaskManager(storage.loadTasks());
+            ui.showLoadSuccessful();
+        } catch (IOException e) {
+            System.out.println(ERROR_TASK_LOAD);
+            taskManager = new TaskManager();
+        } catch (FileFormatException e) {
+            System.out.println(ERROR_TASK_FORMAT);
+            taskManager = new TaskManager();
+        } finally {
+            ui.showDivider();
+        }
     }
 
     public void checkArgumentsLength(int argumentLength, int expectedLength, String errorMessage)
@@ -118,21 +139,6 @@ public class Duke {
         Scanner in = new Scanner(System.in);
         boolean isBye;
 
-        ui.greet();
-
-        // load tasks from file
-        try {
-            taskManager.checkFileExists();
-            taskManager.loadTasks();
-            ui.showLoadSuccessful();
-            ui.showDivider();
-        } catch (IOException e) {
-            System.out.println(ERROR_TASK_LOAD);
-        } catch (FileFormatException e) {
-            System.out.println(ERROR_TASK_FORMAT);
-        }
-
-        // parse and execute commands
         do {
             String line = in.nextLine();
             isBye = line.equals(COMMAND_BYE);
@@ -148,9 +154,8 @@ public class Duke {
             ui.showDivider();
         } while (!isBye);
 
-        // save tasks to file
         try {
-            taskManager.saveTasks();
+            storage.saveTasks(taskManager.getTasks());
         } catch (IOException e) {
             System.out.println(ERROR_TASK_SAVE);
         }
