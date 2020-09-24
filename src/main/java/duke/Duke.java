@@ -3,6 +3,7 @@ package duke;
 import duke.exception.FileFormatException;
 import duke.exception.InvalidArgumentException;
 import duke.exception.UnknownCommandException;
+import duke.ui.Ui;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -15,17 +16,6 @@ public class Duke {
     public static final String COMMAND_ADD_DEADLINE = "deadline";
     public static final String COMMAND_ADD_EVENT = "event";
     public static final String COMMAND_DELETE = "delete";
-
-    public static final String DUKE_DIVIDER = ">>>>++----------------------------------";
-    public static final String DUKE_GREETINGS = "Hello! I'm Duke!\n"
-            + "What can I do for you?";
-    public static final String DUKE_LOGO = "Hello from\n"
-            + " ____        _        \n"
-            + "|  _ \\ _   _| | _____ \n"
-            + "| | | | | | | |/ / _ \\\n"
-            + "| |_| | |_| |   <  __/\n"
-            + "|____/ \\__,_|_|\\_\\___|\n";
-    public static final String DUKE_BYE = "Bye. Hope to see you again soon!";
 
     public static final String ERROR_TODO_NO_DESCRIPTION = "☹ OOPS!!! The description of a Todo cannot be empty.";
     public static final String ERROR_DEADLINE_NO_DESCRIPTION = "☹ OOPS!!! The description of a Deadline cannot be" +
@@ -41,24 +31,11 @@ public class Duke {
     public static final String ERROR_TASK_SAVE = "☹ OOPS!!! I'm sorry, but I couldn't save the tasks :-(";
 
     private final TaskManager taskManager;
+    private final Ui ui;
 
     public Duke() {
         taskManager = new TaskManager();
-    }
-
-    public void showDivider() {
-        System.out.println(DUKE_DIVIDER);
-    }
-
-    public void greet() {
-        System.out.println(DUKE_LOGO);
-        showDivider();
-        System.out.println(DUKE_GREETINGS);
-        showDivider();
-    }
-
-    public void bye() {
-        System.out.println(DUKE_BYE);
+        ui = new Ui();
     }
 
     public void checkArgumentsLength(int argumentLength, int expectedLength, String errorMessage)
@@ -97,7 +74,7 @@ public class Duke {
             taskManager.printTasks();
             break;
         case COMMAND_BYE:
-            bye();
+            ui.showByeMessage();
             break;
         case COMMAND_DONE:
             checkArgumentsLength(arguments.length, 2, ERROR_NO_DONE_ARGUMENT);
@@ -141,14 +118,14 @@ public class Duke {
         Scanner in = new Scanner(System.in);
         boolean isBye;
 
-        greet();
+        ui.greet();
 
         // load tasks from file
         try {
             taskManager.checkFileExists();
             taskManager.loadTasks();
-            System.out.println("Tasks loaded successfully.");
-            showDivider();
+            ui.showLoadSuccessful();
+            ui.showDivider();
         } catch (IOException e) {
             System.out.println(ERROR_TASK_LOAD);
         } catch (FileFormatException e) {
@@ -160,7 +137,7 @@ public class Duke {
             String line = in.nextLine();
             isBye = line.equals(COMMAND_BYE);
 
-            showDivider();
+            ui.showDivider();
             try {
                 parseCommand(line);
             } catch (UnknownCommandException e) {
@@ -168,7 +145,7 @@ public class Duke {
             } catch (InvalidArgumentException e) {
                 System.out.println(e.getErrorMessage());
             }
-            showDivider();
+            ui.showDivider();
         } while (!isBye);
 
         // save tasks to file
