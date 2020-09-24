@@ -7,7 +7,6 @@ import duke.storage.Storage;
 import duke.ui.Ui;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Duke {
     public static final String FILE_LOCATION = "./data/";
@@ -20,19 +19,6 @@ public class Duke {
     public static final String COMMAND_ADD_DEADLINE = "deadline";
     public static final String COMMAND_ADD_EVENT = "event";
     public static final String COMMAND_DELETE = "delete";
-
-    public static final String ERROR_TODO_NO_DESCRIPTION = "☹ OOPS!!! The description of a Todo cannot be empty.";
-    public static final String ERROR_DEADLINE_NO_DESCRIPTION = "☹ OOPS!!! The description of a Deadline cannot be" +
-            " empty.";
-    public static final String ERROR_EVENT_NO_DESCRIPTION = "☹ OOPS!!! The description of an Event cannot be empty.";
-    public static final String ERROR_NO_DEADLINE = "☹ OOPS!!! Your Deadline doesn't contain a deadline!";
-    public static final String ERROR_NO_EVENT = "☹ OOPS!!! Your Event doesn't contain a date";
-    public static final String ERROR_NO_DONE_ARGUMENT = "☹ OOPS!!! You need an argument to be done with!";
-    public static final String ERROR_DONE_ARGUMENT = "☹ OOPS!!! Your done argument is invalid!";
-    public static final String ERROR_UNKNOWN_COMMAND = "☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
-    public static final String ERROR_TASK_LOAD = "☹ OOPS!!! I'm sorry, but I couldn't load the tasks :-(";
-    public static final String ERROR_TASK_FORMAT = "☹ OOPS!!! Your tasks are in the wrong format :-(";
-    public static final String ERROR_TASK_SAVE = "☹ OOPS!!! I'm sorry, but I couldn't save the tasks :-(";
 
     private TaskManager taskManager;
     private final Ui ui;
@@ -49,10 +35,10 @@ public class Duke {
             taskManager = new TaskManager(storage.loadTasks());
             ui.showLoadSuccessful();
         } catch (IOException e) {
-            System.out.println(ERROR_TASK_LOAD);
+            ui.showLoadError();
             taskManager = new TaskManager();
         } catch (FileFormatException e) {
-            System.out.println(ERROR_TASK_FORMAT);
+            ui.showFileFormatError();
             taskManager = new TaskManager();
         } finally {
             ui.showDivider();
@@ -98,34 +84,34 @@ public class Duke {
             ui.showByeMessage();
             break;
         case COMMAND_DONE:
-            checkArgumentsLength(arguments.length, 2, ERROR_NO_DONE_ARGUMENT);
-            checkValidInteger(arguments[1], ERROR_DONE_ARGUMENT);
+            checkArgumentsLength(arguments.length, 2, Ui.ERROR_NO_DONE_ARGUMENT);
+            checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
             int doneIndex = Integer.parseInt(arguments[1]);
-            checkValidIntegerRange(doneIndex, taskManager.getTasksCount(), ERROR_DONE_ARGUMENT);
+            checkValidIntegerRange(doneIndex, taskManager.getTasksCount(), Ui.ERROR_DONE_ARGUMENT);
             taskManager.markAsDone(doneIndex - 1, true);
             break;
         case COMMAND_DELETE:
-            checkArgumentsLength(arguments.length, 2, ERROR_NO_DONE_ARGUMENT);
-            checkValidInteger(arguments[1], ERROR_DONE_ARGUMENT);
+            checkArgumentsLength(arguments.length, 2, Ui.ERROR_NO_DONE_ARGUMENT);
+            checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
             int deleteIndex = Integer.parseInt(arguments[1]);
-            checkValidIntegerRange(deleteIndex, taskManager.getTasksCount(), ERROR_DONE_ARGUMENT);
+            checkValidIntegerRange(deleteIndex, taskManager.getTasksCount(), Ui.ERROR_DONE_ARGUMENT);
             taskManager.deleteTask(deleteIndex - 1);
             break;
         case COMMAND_ADD_TODO:
-            checkArgumentsLength(arguments.length, 2, ERROR_TODO_NO_DESCRIPTION);
+            checkArgumentsLength(arguments.length, 2, Ui.ERROR_TODO_NO_DESCRIPTION);
             taskManager.addTodo(argumentString, true);
             break;
         case COMMAND_ADD_DEADLINE:
             String[] deadlineDetails = argumentString.split(" /by ");
-            checkArgumentsLength(arguments.length, 2, ERROR_DEADLINE_NO_DESCRIPTION);
-            checkArgumentsLength(deadlineDetails.length, 2, ERROR_NO_DEADLINE);
+            checkArgumentsLength(arguments.length, 2, Ui.ERROR_DEADLINE_NO_DESCRIPTION);
+            checkArgumentsLength(deadlineDetails.length, 2, Ui.ERROR_NO_DEADLINE);
             description = argumentString.replace(" /by " + deadlineDetails[1], "");
             taskManager.addDeadline(description, deadlineDetails[1], true);
             break;
         case COMMAND_ADD_EVENT:
             String[] eventDetails = argumentString.split(" /at ");
-            checkArgumentsLength(arguments.length, 2, ERROR_EVENT_NO_DESCRIPTION);
-            checkArgumentsLength(eventDetails.length, 2, ERROR_NO_EVENT);
+            checkArgumentsLength(arguments.length, 2, Ui.ERROR_EVENT_NO_DESCRIPTION);
+            checkArgumentsLength(eventDetails.length, 2, Ui.ERROR_NO_EVENT);
             description = argumentString.replace(" /at " + eventDetails[1], "");
             taskManager.addEvent(description, eventDetails[1], true);
             break;
@@ -136,11 +122,10 @@ public class Duke {
     }
 
     public void run() {
-        Scanner in = new Scanner(System.in);
         boolean isBye;
 
         do {
-            String line = in.nextLine();
+            String line = ui.readCommand();
             isBye = line.equals(COMMAND_BYE);
 
             ui.showDivider();
@@ -157,7 +142,7 @@ public class Duke {
         try {
             storage.saveTasks(taskManager.getTasks());
         } catch (IOException e) {
-            System.out.println(ERROR_TASK_SAVE);
+            ui.showSaveError();
         }
     }
 
