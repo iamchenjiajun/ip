@@ -133,7 +133,7 @@ public class Duke {
         }
     }
 
-    public static void main(String[] args) {
+    public void run() {
         Scanner in = new Scanner(System.in);
         boolean isBye;
 
@@ -173,5 +173,9 @@ public class Duke {
         } catch (IOException e) {
             System.out.println(ERROR_TASK_SAVE);
         }
+    }
+
+    public static void main(String[] args) {
+        new Duke().run();
     }
 }
