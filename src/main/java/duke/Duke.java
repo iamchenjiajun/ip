@@ -40,31 +40,35 @@ public class Duke {
     public static final String ERROR_TASK_FORMAT = "☹ OOPS!!! Your tasks are in the wrong format :-(";
     public static final String ERROR_TASK_SAVE = "☹ OOPS!!! I'm sorry, but I couldn't save the tasks :-(";
 
-    private static final TaskManager taskManager = new TaskManager();
+    private final TaskManager taskManager;
 
-    public static void showDivider() {
+    public Duke() {
+        taskManager = new TaskManager();
+    }
+
+    public void showDivider() {
         System.out.println(DUKE_DIVIDER);
     }
 
-    public static void greet() {
+    public void greet() {
         System.out.println(DUKE_LOGO);
         showDivider();
         System.out.println(DUKE_GREETINGS);
         showDivider();
     }
 
-    public static void bye() {
+    public void bye() {
         System.out.println(DUKE_BYE);
     }
 
-    public static void checkArgumentsLength(int argumentLength, int expectedLength, String errorMessage)
+    public void checkArgumentsLength(int argumentLength, int expectedLength, String errorMessage)
             throws InvalidArgumentException {
         if (argumentLength < expectedLength) {
             throw new InvalidArgumentException(errorMessage);
         }
     }
 
-    public static void checkValidInteger(String integerString, String errorMessage) throws InvalidArgumentException {
+    public void checkValidInteger(String integerString, String errorMessage) throws InvalidArgumentException {
         try {
             Integer.parseInt(integerString);
         } catch (NumberFormatException e) {
@@ -72,7 +76,7 @@ public class Duke {
         }
     }
 
-    public static void checkValidIntegerRange(int checkInteger, int expectedValue, String errorMessage)
+    public void checkValidIntegerRange(int checkInteger, int expectedValue, String errorMessage)
             throws InvalidArgumentException {
         boolean isMoreThan = checkInteger > expectedValue;
         boolean isLessThanOne = checkInteger < 1;
@@ -82,7 +86,7 @@ public class Duke {
         }
     }
 
-    public static void parseCommand(String line) throws UnknownCommandException, InvalidArgumentException {
+    public void parseCommand(String line) throws UnknownCommandException, InvalidArgumentException {
         String[] arguments = line.split(" ");
         String command = arguments[0];
         String argumentString = line.replaceFirst(command + " ", "");
