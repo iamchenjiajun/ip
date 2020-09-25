@@ -101,7 +101,7 @@ Added meet up with cs2113 group as an Event.
 5.[E][âœ—] meet up with cs2113 group (at: 11am)
 >>>>++----------------------------------
 >>>>++----------------------------------
-â˜¹ OOPS!!! You need an argument to be done with!
+â˜¹ OOPS!!! You have an invalid number of arguments!
 >>>>++----------------------------------
 >>>>++----------------------------------
 â˜¹ OOPS!!! Your done argument is invalid!
@@ -145,10 +145,10 @@ Nice! I've marked this task as done:
 5.[E][âœ“] meet up with cs2113 group (at: 11am)
 >>>>++----------------------------------
 >>>>++----------------------------------
-â˜¹ OOPS!!! Your done argument is invalid!
+â˜¹ OOPS!!! Your delete argument is invalid!
 >>>>++----------------------------------
 >>>>++----------------------------------
-â˜¹ OOPS!!! Your done argument is invalid!
+â˜¹ OOPS!!! Your delete argument is invalid!
 >>>>++----------------------------------
 >>>>++----------------------------------
 Noted. I've removed this task:
