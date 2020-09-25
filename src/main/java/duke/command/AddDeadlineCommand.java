@@ -1,6 +1,6 @@
 package duke.command;
 
-import duke.TaskManager;
+import duke.taskmanager.TaskManager;
 import duke.storage.Storage;
 import duke.ui.Ui;
 

@@ -1,6 +1,6 @@
 package duke.parser;
 
-import duke.TaskManager;
+import duke.taskmanager.TaskManager;
 import duke.command.AddDeadlineCommand;
 import duke.command.AddEventCommand;
 import duke.command.AddTodoCommand;
