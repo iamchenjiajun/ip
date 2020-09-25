@@ -14,6 +14,6 @@ public class AddEventCommand extends Command {
     }
     @Override
     public void execute(TaskManager taskManager, Ui ui, Storage storage) {
-        taskManager.addEvent(description, at, true);
+        taskManager.addEvent(description, at);
     }
 }

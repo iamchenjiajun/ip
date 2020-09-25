@@ -14,6 +14,6 @@ public class DoneCommand extends Command {
 
     @Override
     public void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidArgumentException {
-        taskManager.markAsDone(index, true);
+        taskManager.markAsDone(index);
     }
 }

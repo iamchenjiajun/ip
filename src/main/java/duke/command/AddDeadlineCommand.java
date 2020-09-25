@@ -14,6 +14,6 @@ public class AddDeadlineCommand extends Command {
     }
     @Override
     public void execute(TaskManager taskManager, Ui ui, Storage storage) {
-        taskManager.addDeadline(description, by, true);
+        taskManager.addDeadline(description, by);
     }
 }

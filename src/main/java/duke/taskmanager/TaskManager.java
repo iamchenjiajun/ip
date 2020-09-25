@@ -29,49 +29,42 @@ public class TaskManager {
 
     public void deleteTask(int index) throws InvalidArgumentException {
         try {
-            System.out.println("Noted. I've removed this task:");
-            System.out.println(tasks.get(index));
+            Task removedTask = tasks.get(index);
             tasks.remove(index);
+            System.out.println("Noted. I've removed this task:");
+            System.out.println(removedTask);
             System.out.println("Now you have " + getTasksCount() + " tasks in the list");
         } catch (IndexOutOfBoundsException e) {
             throw new InvalidArgumentException(Ui.ERROR_DONE_ARGUMENT);
         }
     }
 
-    public void markAsDone(int index, boolean shouldPrintMessage) throws InvalidArgumentException {
+    public void markAsDone(int index) throws InvalidArgumentException {
         try {
             tasks.get(index).markAsDone();
-            if (shouldPrintMessage) {
-                System.out.println("Nice! I've marked this task as done:");
-                System.out.println(tasks.get(index));
-            }
+            System.out.println("Nice! I've marked this task as done:");
+            System.out.println(tasks.get(index));
         } catch (IndexOutOfBoundsException e) {
             throw new InvalidArgumentException((Ui.ERROR_DONE_ARGUMENT));
         }
     }
 
-    public void addDeadline(String description, String by, boolean shouldPrintMessage) {
+    public void addDeadline(String description, String by) {
         tasks.add(new Deadline(description, by));
-        if (shouldPrintMessage) {
-            System.out.println("Added " + description + " as a Deadline.");
-            System.out.println(tasks.get(tasks.size() - 1));
-        }
+        System.out.println("Added " + description + " as a Deadline.");
+        System.out.println(tasks.get(tasks.size() - 1));
     }
 
-    public void addTodo(String description, boolean shouldPrintMessage) {
+    public void addTodo(String description) {
         tasks.add(new Todo(description));
-        if (shouldPrintMessage) {
-            System.out.println("Added " + description + " as a Todo.");
-            System.out.println(tasks.get(tasks.size() - 1));
-        }
+        System.out.println("Added " + description + " as a Todo.");
+        System.out.println(tasks.get(tasks.size() - 1));
     }
 
-    public void addEvent(String description, String at, boolean shouldPrintMessage) {
+    public void addEvent(String description, String at) {
         tasks.add(new Event(description, at));
-        if (shouldPrintMessage) {
-            System.out.println("Added " + description + " as an Event.");
-            System.out.println(tasks.get(tasks.size() - 1));
-        }
+        System.out.println("Added " + description + " as an Event.");
+        System.out.println(tasks.get(tasks.size() - 1));
     }
 
     public int getTasksCount() {

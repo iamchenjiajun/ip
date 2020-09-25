@@ -13,6 +13,6 @@ public class AddTodoCommand extends Command {
 
     @Override
     public void execute(TaskManager taskManager, Ui ui, Storage storage) {
-        taskManager.addTodo(description, true);
+        taskManager.addTodo(description);
     }
 }
