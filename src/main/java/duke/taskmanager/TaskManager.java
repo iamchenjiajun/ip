@@ -35,7 +35,7 @@ public class TaskManager {
             System.out.println(removedTask);
             System.out.println("Now you have " + getTasksCount() + " tasks in the list");
         } catch (IndexOutOfBoundsException e) {
-            throw new InvalidArgumentException(Ui.ERROR_DONE_ARGUMENT);
+            throw new InvalidArgumentException(Ui.ERROR_DELETE_ARGUMENT);
         }
     }
 

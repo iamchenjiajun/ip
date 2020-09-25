@@ -52,7 +52,7 @@ public class Parser {
     }
 
     private Command createDoneCommand(String[] arguments) throws InvalidArgumentException {
-        checkExactArgumentsLength(arguments.length, 2, Ui.ERROR_NO_DONE_ARGUMENT);
+        checkExactArgumentsLength(arguments.length, 2);
         checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
         int doneIndex = Integer.parseInt(arguments[1]);
 
@@ -60,8 +60,8 @@ public class Parser {
     }
 
     private Command createDeleteCommand(String[] arguments) throws InvalidArgumentException {
-        checkExactArgumentsLength(arguments.length, 2, Ui.ERROR_NO_DONE_ARGUMENT);
-        checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
+        checkExactArgumentsLength(arguments.length, 2);
+        checkValidInteger(arguments[1], Ui.ERROR_DELETE_ARGUMENT);
         int deleteIndex = Integer.parseInt(arguments[1]);
 
         return new DeleteCommand(deleteIndex - 1);
@@ -92,10 +92,10 @@ public class Parser {
         return new AddEventCommand(description, eventDetails[1]);
     }
 
-    private void checkExactArgumentsLength(int argumentLength, int expectedLength, String errorMessage)
+    private void checkExactArgumentsLength(int argumentLength, int expectedLength)
             throws InvalidArgumentException {
         if (argumentLength != expectedLength) {
-            throw new InvalidArgumentException(errorMessage);
+            throw new InvalidArgumentException(Ui.ERROR_INVALID_ARGUMENT_LENGTH);
         }
     }
 

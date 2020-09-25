@@ -21,8 +21,9 @@ public class Ui {
     public static final String ERROR_EVENT_NO_DESCRIPTION = "☹ OOPS!!! The description of an Event cannot be empty.";
     public static final String ERROR_NO_DEADLINE = "☹ OOPS!!! Your Deadline doesn't contain a deadline!";
     public static final String ERROR_NO_EVENT = "☹ OOPS!!! Your Event doesn't contain a date";
-    public static final String ERROR_NO_DONE_ARGUMENT = "☹ OOPS!!! You need an argument to be done with!";
     public static final String ERROR_DONE_ARGUMENT = "☹ OOPS!!! Your done argument is invalid!";
+    public static final String ERROR_DELETE_ARGUMENT = "☹ OOPS!!! Your delete argument is invalid!";
+    public static final String ERROR_INVALID_ARGUMENT_LENGTH = "☹ OOPS!!! You have an invalid number of arguments!";
     public static final String ERROR_UNKNOWN_COMMAND = "☹ OOPS!!! I'm sorry, but I don't know what that means :-(";
     public static final String ERROR_TASK_LOAD = "☹ OOPS!!! I'm sorry, but I couldn't load the tasks :-(";
     public static final String ERROR_TASK_FORMAT = "☹ OOPS!!! Your tasks are in the wrong format :-(";
