@@ -3,6 +3,7 @@ package duke;
 import duke.command.Command;
 import duke.exception.FileFormatException;
 import duke.exception.InvalidArgumentException;
+import duke.exception.InvalidIndexException;
 import duke.exception.UnknownCommandException;
 import duke.parser.Parser;
 import duke.storage.Storage;
@@ -54,6 +55,8 @@ public class Duke {
             } catch (UnknownCommandException e) {
                 System.out.println(e.getErrorMessage());
             } catch (InvalidArgumentException e) {
+                System.out.println(e.getErrorMessage());
+            } catch (InvalidIndexException e) {
                 System.out.println(e.getErrorMessage());
             }
             ui.showDivider();

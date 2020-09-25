@@ -1,6 +1,6 @@
 package duke.command;
 
-import duke.exception.InvalidArgumentException;
+import duke.exception.InvalidIndexException;
 import duke.taskmanager.TaskManager;
 import duke.storage.Storage;
 import duke.ui.Ui;
@@ -13,7 +13,7 @@ public class DoneCommand extends Command {
     }
 
     @Override
-    public void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidArgumentException {
+    public void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidIndexException {
         taskManager.markAsDone(index);
     }
 }

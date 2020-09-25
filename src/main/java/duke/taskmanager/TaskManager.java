@@ -1,6 +1,6 @@
 package duke.taskmanager;
 
-import duke.exception.InvalidArgumentException;
+import duke.exception.InvalidIndexException;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
@@ -27,7 +27,7 @@ public class TaskManager {
         }
     }
 
-    public void deleteTask(int index) throws InvalidArgumentException {
+    public void deleteTask(int index) throws InvalidIndexException {
         try {
             Task removedTask = tasks.get(index);
             tasks.remove(index);
@@ -35,17 +35,17 @@ public class TaskManager {
             System.out.println(removedTask);
             System.out.println("Now you have " + getTasksCount() + " tasks in the list");
         } catch (IndexOutOfBoundsException e) {
-            throw new InvalidArgumentException(Ui.ERROR_DELETE_ARGUMENT);
+            throw new InvalidIndexException(Ui.ERROR_DELETE_ARGUMENT);
         }
     }
 
-    public void markAsDone(int index) throws InvalidArgumentException {
+    public void markAsDone(int index) throws InvalidIndexException {
         try {
             tasks.get(index).markAsDone();
             System.out.println("Nice! I've marked this task as done:");
             System.out.println(tasks.get(index));
         } catch (IndexOutOfBoundsException e) {
-            throw new InvalidArgumentException((Ui.ERROR_DONE_ARGUMENT));
+            throw new InvalidIndexException((Ui.ERROR_DONE_ARGUMENT));
         }
     }
 
