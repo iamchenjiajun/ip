@@ -1,5 +1,6 @@
 package duke;
 
+import duke.command.Command;
 import duke.exception.FileFormatException;
 import duke.exception.InvalidArgumentException;
 import duke.exception.UnknownCommandException;
@@ -39,16 +40,17 @@ public class Duke {
     }
 
     public void run() {
-        boolean isBye;
+        boolean isBye = false;
         Parser parser = new Parser(taskManager, ui, storage);
 
         do {
             String line = ui.readCommand();
-            isBye = line.equals(Parser.COMMAND_BYE);
 
             ui.showDivider();
             try {
-                parser.parseCommand(line);
+                Command command = parser.parseCommand(line);
+                command.execute(taskManager, ui, storage);
+                isBye = command.isBye();
             } catch (UnknownCommandException e) {
                 System.out.println(e.getErrorMessage());
             } catch (InvalidArgumentException e) {
