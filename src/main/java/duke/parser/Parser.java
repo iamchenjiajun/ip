@@ -1,6 +1,5 @@
 package duke.parser;
 
-import duke.taskmanager.TaskManager;
 import duke.command.AddDeadlineCommand;
 import duke.command.AddEventCommand;
 import duke.command.AddTodoCommand;
@@ -11,28 +10,17 @@ import duke.command.DoneCommand;
 import duke.command.ListCommand;
 import duke.exception.InvalidArgumentException;
 import duke.exception.UnknownCommandException;
-import duke.storage.Storage;
 import duke.ui.Ui;
 
 public class Parser {
-    private final TaskManager taskManager;
-    private final Ui ui;
-    private final Storage storage;
-
-    public Parser(TaskManager taskManager, Ui ui, Storage storage) {
-        this.taskManager = taskManager;
-        this.ui = ui;
-        this.storage = storage;
-    }
-
     public Command parseCommand(String line) throws UnknownCommandException, InvalidArgumentException {
         String[] arguments = line.split(" ");
         String rootCommand = arguments[0];
         String argumentString = line.replaceFirst(rootCommand + " ", "");
-        String description;
-
         Command command;
 
+        // Solution for refactoring to obtain Commands from separate functions adapted from
+        // https://github.com/se-edu/addressbook-level2
         switch (rootCommand) {
         case Command.COMMAND_LIST:
             command = new ListCommand();
@@ -41,36 +29,19 @@ public class Parser {
             command = new ByeCommand();
             break;
         case Command.COMMAND_DONE:
-            checkArgumentsLength(arguments.length, 2, Ui.ERROR_NO_DONE_ARGUMENT);
-            checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
-            int doneIndex = Integer.parseInt(arguments[1]);
-            checkValidIntegerRange(doneIndex, taskManager.getTasksCount(), Ui.ERROR_DONE_ARGUMENT);
-            command = new DoneCommand(doneIndex - 1);
+            command = createDoneCommand(arguments);
             break;
         case Command.COMMAND_DELETE:
-            checkArgumentsLength(arguments.length, 2, Ui.ERROR_NO_DONE_ARGUMENT);
-            checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
-            int deleteIndex = Integer.parseInt(arguments[1]);
-            checkValidIntegerRange(deleteIndex, taskManager.getTasksCount(), Ui.ERROR_DONE_ARGUMENT);
-            command = new DeleteCommand(deleteIndex - 1);
+            command = createDeleteCommand(arguments);
             break;
         case Command.COMMAND_ADD_TODO:
-            checkArgumentsLength(arguments.length, 2, Ui.ERROR_TODO_NO_DESCRIPTION);
-            command = new AddTodoCommand(argumentString);
+            command = createAddTodoCommand(arguments, argumentString);
             break;
         case Command.COMMAND_ADD_DEADLINE:
-            String[] deadlineDetails = argumentString.split(" /by ");
-            checkArgumentsLength(arguments.length, 2, Ui.ERROR_DEADLINE_NO_DESCRIPTION);
-            checkArgumentsLength(deadlineDetails.length, 2, Ui.ERROR_NO_DEADLINE);
-            description = argumentString.replace(" /by " + deadlineDetails[1], "");
-            command = new AddDeadlineCommand(description, deadlineDetails[1]);
+            command = createAddDeadlineCommand(arguments, argumentString);
             break;
         case Command.COMMAND_ADD_EVENT:
-            String[] eventDetails = argumentString.split(" /at ");
-            checkArgumentsLength(arguments.length, 2, Ui.ERROR_EVENT_NO_DESCRIPTION);
-            checkArgumentsLength(eventDetails.length, 2, Ui.ERROR_NO_EVENT);
-            description = argumentString.replace(" /at " + eventDetails[1], "");
-            command = new AddEventCommand(description, eventDetails[1]);
+            command = createAddEventCommand(arguments, argumentString);
             break;
         default:
             throw new UnknownCommandException();
@@ -78,6 +49,47 @@ public class Parser {
         }
 
         return command;
+    }
+
+    private Command createDoneCommand(String[] arguments) throws InvalidArgumentException {
+        checkArgumentsLength(arguments.length, 2, Ui.ERROR_NO_DONE_ARGUMENT);
+        checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
+        int doneIndex = Integer.parseInt(arguments[1]);
+
+        return new DoneCommand(doneIndex - 1);
+    }
+
+    private Command createDeleteCommand(String[] arguments) throws InvalidArgumentException {
+        checkArgumentsLength(arguments.length, 2, Ui.ERROR_NO_DONE_ARGUMENT);
+        checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
+        int deleteIndex = Integer.parseInt(arguments[1]);
+
+        return new DeleteCommand(deleteIndex - 1);
+    }
+
+    private Command createAddTodoCommand(String[] arguments, String argumentString) throws InvalidArgumentException {
+        checkArgumentsLength(arguments.length, 2, Ui.ERROR_TODO_NO_DESCRIPTION);
+
+        return new AddTodoCommand(argumentString);
+    }
+
+    private Command createAddDeadlineCommand(String[] arguments, String argumentString)
+            throws InvalidArgumentException {
+        String[] deadlineDetails = argumentString.split(" /by ");
+        checkArgumentsLength(arguments.length, 2, Ui.ERROR_DEADLINE_NO_DESCRIPTION);
+        checkArgumentsLength(deadlineDetails.length, 2, Ui.ERROR_NO_DEADLINE);
+        String description = argumentString.replace(" /by " + deadlineDetails[1], "");
+
+        return new AddDeadlineCommand(description, deadlineDetails[1]);
+    }
+
+    private Command createAddEventCommand(String[] arguments, String argumentString) throws InvalidArgumentException {
+        String[] eventDetails = argumentString.split(" /at ");
+        checkArgumentsLength(arguments.length, 2, Ui.ERROR_EVENT_NO_DESCRIPTION);
+        checkArgumentsLength(eventDetails.length, 2, Ui.ERROR_NO_EVENT);
+        String description = argumentString.replace(" /at " + eventDetails[1], "");
+
+        return new AddEventCommand(description, eventDetails[1]);
     }
 
     private void checkArgumentsLength(int argumentLength, int expectedLength, String errorMessage)
@@ -91,16 +103,6 @@ public class Parser {
         try {
             Integer.parseInt(integerString);
         } catch (NumberFormatException e) {
-            throw new InvalidArgumentException(errorMessage);
-        }
-    }
-
-    private void checkValidIntegerRange(int checkInteger, int expectedValue, String errorMessage)
-            throws InvalidArgumentException {
-        boolean isMoreThan = checkInteger > expectedValue;
-        boolean isLessThanOne = checkInteger < 1;
-
-        if (isMoreThan || isLessThanOne) {
             throw new InvalidArgumentException(errorMessage);
         }
     }

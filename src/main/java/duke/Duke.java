@@ -42,11 +42,10 @@ public class Duke {
 
     public void run() {
         boolean isBye = false;
-        Parser parser = new Parser(taskManager, ui, storage);
+        Parser parser = new Parser();
 
         do {
             String line = ui.readCommand();
-
             ui.showDivider();
             try {
                 Command command = parser.parseCommand(line);
