@@ -52,7 +52,7 @@ public class Parser {
     }
 
     private Command createDoneCommand(String[] arguments) throws InvalidArgumentException {
-        checkExactArgumentsLength(arguments.length, 2);
+        checkExactArgumentLength(arguments.length, DoneCommand.EXPECTED_ARGUMENT_LENGTH);
         checkValidInteger(arguments[1], Ui.ERROR_DONE_ARGUMENT);
         int doneIndex = Integer.parseInt(arguments[1]);
 
@@ -60,7 +60,7 @@ public class Parser {
     }
 
     private Command createDeleteCommand(String[] arguments) throws InvalidArgumentException {
-        checkExactArgumentsLength(arguments.length, 2);
+        checkExactArgumentLength(arguments.length, DeleteCommand.EXPECTED_ARGUMENT_LENGTH);
         checkValidInteger(arguments[1], Ui.ERROR_DELETE_ARGUMENT);
         int deleteIndex = Integer.parseInt(arguments[1]);
 
@@ -68,7 +68,7 @@ public class Parser {
     }
 
     private Command createAddTodoCommand(String[] arguments, String argumentString) throws InvalidArgumentException {
-        checkMinimumArgumentsLength(arguments.length, 2, Ui.ERROR_TODO_NO_DESCRIPTION);
+        checkMinArgumentLength(arguments.length, AddTodoCommand.MIN_ARGUMENT_LENGTH, Ui.ERROR_TODO_NO_DESCRIPTION);
 
         return new AddTodoCommand(argumentString);
     }
@@ -76,8 +76,9 @@ public class Parser {
     private Command createAddDeadlineCommand(String[] arguments, String argumentString)
             throws InvalidArgumentException {
         String[] deadlineDetails = argumentString.split(" /by ");
-        checkMinimumArgumentsLength(arguments.length, 2, Ui.ERROR_DEADLINE_NO_DESCRIPTION);
-        checkMinimumArgumentsLength(deadlineDetails.length, 2, Ui.ERROR_NO_DEADLINE);
+        checkMinArgumentLength(arguments.length, AddDeadlineCommand.MIN_ARGUMENT_LENGTH,
+                Ui.ERROR_DEADLINE_NO_DESCRIPTION);
+        checkMinArgumentLength(deadlineDetails.length, AddDeadlineCommand.MIN_ARGUMENT_LENGTH, Ui.ERROR_NO_DEADLINE);
         String description = argumentString.replace(" /by " + deadlineDetails[1], "");
 
         return new AddDeadlineCommand(description, deadlineDetails[1]);
@@ -85,21 +86,21 @@ public class Parser {
 
     private Command createAddEventCommand(String[] arguments, String argumentString) throws InvalidArgumentException {
         String[] eventDetails = argumentString.split(" /at ");
-        checkMinimumArgumentsLength(arguments.length, 2, Ui.ERROR_EVENT_NO_DESCRIPTION);
-        checkMinimumArgumentsLength(eventDetails.length, 2, Ui.ERROR_NO_EVENT);
+        checkMinArgumentLength(arguments.length, AddEventCommand.MIN_ARGUMENT_LENGTH, Ui.ERROR_EVENT_NO_DESCRIPTION);
+        checkMinArgumentLength(eventDetails.length, AddEventCommand.MIN_ARGUMENT_LENGTH, Ui.ERROR_NO_EVENT);
         String description = argumentString.replace(" /at " + eventDetails[1], "");
 
         return new AddEventCommand(description, eventDetails[1]);
     }
 
-    private void checkExactArgumentsLength(int argumentLength, int expectedLength)
+    private void checkExactArgumentLength(int argumentLength, int expectedLength)
             throws InvalidArgumentException {
         if (argumentLength != expectedLength) {
             throw new InvalidArgumentException(Ui.ERROR_INVALID_ARGUMENT_LENGTH);
         }
     }
 
-    private void checkMinimumArgumentsLength(int argumentLength, int minimumLength, String errorMessage)
+    private void checkMinArgumentLength(int argumentLength, int minimumLength, String errorMessage)
             throws InvalidArgumentException {
         if (argumentLength < minimumLength) {
             throw new InvalidArgumentException(errorMessage);

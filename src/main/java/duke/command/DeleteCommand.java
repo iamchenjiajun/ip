@@ -6,6 +6,7 @@ import duke.storage.Storage;
 import duke.ui.Ui;
 
 public class DeleteCommand extends Command {
+    public static final int EXPECTED_ARGUMENT_LENGTH = 2;
     int index;
 
     public DeleteCommand(int index) {

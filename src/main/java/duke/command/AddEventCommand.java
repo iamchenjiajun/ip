@@ -5,6 +5,7 @@ import duke.storage.Storage;
 import duke.ui.Ui;
 
 public class AddEventCommand extends Command {
+    public static final int MIN_ARGUMENT_LENGTH = 2;
     String description;
     String at;
 
