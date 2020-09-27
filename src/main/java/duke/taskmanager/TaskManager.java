@@ -8,6 +8,7 @@ import duke.task.Todo;
 import duke.ui.Ui;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class TaskManager {
     private final ArrayList<Task> tasks;
@@ -36,6 +37,19 @@ public class TaskManager {
             System.out.println("Now you have " + getTasksCount() + " tasks in the list");
         } catch (IndexOutOfBoundsException e) {
             throw new InvalidIndexException(Ui.ERROR_DELETE_ARGUMENT);
+        }
+    }
+
+    public void findTask(String searchString) {
+        System.out.println("Here's the tasks containing '" + searchString + "':");
+
+        ArrayList<Task> filteredTasks = (ArrayList<Task>) tasks.stream()
+                .filter((task) -> task.getDescription().contains(searchString))
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < filteredTasks.size(); i++) {
+            int index = i + 1;
+            System.out.println(index + "." + filteredTasks.get(i));
         }
     }
 

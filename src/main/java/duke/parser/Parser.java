@@ -7,6 +7,7 @@ import duke.command.ByeCommand;
 import duke.command.Command;
 import duke.command.DeleteCommand;
 import duke.command.DoneCommand;
+import duke.command.FindCommand;
 import duke.command.ListCommand;
 import duke.exception.InvalidArgumentException;
 import duke.exception.UnknownCommandException;
@@ -42,6 +43,9 @@ public class Parser {
             break;
         case Command.COMMAND_ADD_EVENT:
             command = createAddEventCommand(arguments, argumentString);
+            break;
+        case Command.COMMAND_FIND:
+            command = createFindCommand(arguments, argumentString);
             break;
         default:
             throw new UnknownCommandException();
@@ -91,6 +95,11 @@ public class Parser {
         String description = argumentString.replace(" /at " + eventDetails[1], "");
 
         return new AddEventCommand(description, eventDetails[1]);
+    }
+
+    private Command createFindCommand(String[] arguments, String argumentString) throws InvalidArgumentException {
+        checkMinArgumentLength(arguments.length, FindCommand.MIN_ARGUMENT_LENGTH, Ui.ERROR_INVALID_ARGUMENT_LENGTH);
+        return new FindCommand(argumentString);
     }
 
     private void checkExactArgumentLength(int argumentLength, int expectedLength)
