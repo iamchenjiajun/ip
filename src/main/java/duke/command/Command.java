@@ -14,6 +14,7 @@ public abstract class Command {
     public static final String COMMAND_ADD_DEADLINE = "deadline";
     public static final String COMMAND_ADD_EVENT = "event";
     public static final String COMMAND_DELETE = "delete";
+    public static final String COMMAND_DATE = "date";
 
     public abstract void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidIndexException,
             DateTimeFormatException;

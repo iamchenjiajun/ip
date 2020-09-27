@@ -15,7 +15,7 @@ public class Deadline extends Task implements DatedTask {
         try {
             this.byDateTime = LocalDateTime.parse(by, DATETIME_PARSE_FORMATTER);
         } catch (DateTimeParseException e) {
-            throw new DateTimeFormatException(Ui.ERROR_DATE_FORMAT);
+            throw new DateTimeFormatException(Ui.ERROR_DATETIME_FORMAT);
         }
     }
 

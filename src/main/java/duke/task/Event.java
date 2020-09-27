@@ -15,7 +15,7 @@ public class Event extends Task implements DatedTask {
         try {
             this.atDateTime = LocalDateTime.parse(at, DATETIME_PARSE_FORMATTER);
         } catch (DateTimeParseException e) {
-            throw new DateTimeFormatException(Ui.ERROR_DATE_FORMAT);
+            throw new DateTimeFormatException(Ui.ERROR_DATETIME_FORMAT);
         }
     }
 

@@ -2,12 +2,15 @@ package duke.taskmanager;
 
 import duke.exception.DateTimeFormatException;
 import duke.exception.InvalidIndexException;
+import duke.task.DatedTask;
 import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.Todo;
 import duke.ui.Ui;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 public class TaskManager {
@@ -26,6 +29,24 @@ public class TaskManager {
             int index = i + 1;
             System.out.println(index + "." + tasks.get(i));
         }
+    }
+
+    public void printTasksOnDate(String date) throws DateTimeFormatException {
+        LocalDate targetDate;
+
+        try {
+            targetDate = LocalDate.parse(date, Task.DATE_PARSE_FORMATTER);
+        } catch (DateTimeParseException e) {
+            throw new DateTimeFormatException(Ui.ERROR_DATE_FORMAT);
+        }
+
+        String dateString = targetDate.format(Task.DATE_PRINT_FORMATTER);
+        System.out.println("Here's an overview of " + dateString);
+
+        tasks.stream()
+                .filter((task) -> task instanceof DatedTask)
+                .filter((task) -> targetDate.equals(((DatedTask) task).getLocalDate()))
+                .forEach(System.out::println);
     }
 
     public void deleteTask(int index) throws InvalidIndexException {
