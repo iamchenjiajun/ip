@@ -161,5 +161,33 @@ Noted. I've removed this task:
 Now you have 3 tasks in the list
 >>>>++----------------------------------
 >>>>++----------------------------------
+1.[D][âœ“] do homework (by: next monday)
+2.[E][âœ“] go to school (at: tomorrow 1pm)
+3.[D][âœ“] write user stories (by: thursday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! You need a search string to find!
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'x':
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'home':
+1.[D][âœ“] do homework (by: next monday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'WORK':
+1.[D][âœ“] do homework (by: next monday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'user stories':
+1.[D][âœ“] write user stories (by: thursday)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'e':
+1.[D][âœ“] do homework (by: next monday)
+2.[D][âœ“] write user stories (by: thursday)
+>>>>++----------------------------------
+>>>>++----------------------------------
 Bye. Hope to see you again soon!
 >>>>++----------------------------------
