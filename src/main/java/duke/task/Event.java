@@ -1,13 +1,21 @@
 package duke.task;
 
+import duke.exception.DateTimeFormatException;
+import duke.ui.Ui;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 
 public class Event extends Task {
     protected LocalDateTime atDateTime;
 
-    public Event(String description, String at) {
+    public Event(String description, String at) throws DateTimeFormatException {
         super(description);
-        this.atDateTime = LocalDateTime.parse(at, DATETIME_PARSE_FORMATTER);
+        try {
+            this.atDateTime = LocalDateTime.parse(at, DATETIME_PARSE_FORMATTER);
+        } catch (DateTimeParseException e) {
+            throw new DateTimeFormatException(Ui.ERROR_DATE_FORMAT);
+        }
     }
 
     public String toSaveString() {

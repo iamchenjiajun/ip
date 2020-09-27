@@ -1,14 +1,21 @@
 package duke.task;
 
+import duke.exception.DateTimeFormatException;
+import duke.ui.Ui;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
 public class Deadline extends Task {
     protected LocalDateTime byDateTime;
 
-    public Deadline(String description, String by) throws DateTimeParseException {
+    public Deadline(String description, String by) throws DateTimeFormatException {
         super(description);
-        this.byDateTime = LocalDateTime.parse(by, DATETIME_PARSE_FORMATTER);
+        try {
+            this.byDateTime = LocalDateTime.parse(by, DATETIME_PARSE_FORMATTER);
+        } catch (DateTimeParseException e) {
+            throw new DateTimeFormatException(Ui.ERROR_DATE_FORMAT);
+        }
     }
 
     public String toSaveString() {

@@ -1,5 +1,6 @@
 package duke.taskmanager;
 
+import duke.exception.DateTimeFormatException;
 import duke.exception.InvalidIndexException;
 import duke.task.Deadline;
 import duke.task.Event;
@@ -49,7 +50,7 @@ public class TaskManager {
         }
     }
 
-    public void addDeadline(String description, String by) {
+    public void addDeadline(String description, String by) throws DateTimeFormatException {
         tasks.add(new Deadline(description, by));
         System.out.println("Added " + description + " as a Deadline.");
         System.out.println(tasks.get(tasks.size() - 1));
@@ -61,7 +62,7 @@ public class TaskManager {
         System.out.println(tasks.get(tasks.size() - 1));
     }
 
-    public void addEvent(String description, String at) {
+    public void addEvent(String description, String at) throws DateTimeFormatException {
         tasks.add(new Event(description, at));
         System.out.println("Added " + description + " as an Event.");
         System.out.println(tasks.get(tasks.size() - 1));

@@ -1,5 +1,6 @@
 package duke.storage;
 
+import duke.exception.DateTimeFormatException;
 import duke.exception.FileFormatException;
 import duke.task.Deadline;
 import duke.task.Event;
@@ -33,7 +34,7 @@ public class Storage {
         }
     }
 
-    public ArrayList<Task> loadTasks() throws FileNotFoundException, FileFormatException {
+    public ArrayList<Task> loadTasks() throws FileNotFoundException, FileFormatException, DateTimeFormatException {
         ArrayList<Task> tasks = new ArrayList<>();
 
         File file = new File(fileLocation + fileName);

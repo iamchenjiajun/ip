@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.exception.DateTimeFormatException;
 import duke.exception.InvalidIndexException;
 import duke.taskmanager.TaskManager;
 import duke.storage.Storage;
@@ -14,7 +15,8 @@ public abstract class Command {
     public static final String COMMAND_ADD_EVENT = "event";
     public static final String COMMAND_DELETE = "delete";
 
-    public abstract void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidIndexException;
+    public abstract void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidIndexException,
+            DateTimeFormatException;
 
     public boolean isBye() {
         return false;
