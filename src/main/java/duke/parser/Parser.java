@@ -98,7 +98,7 @@ public class Parser {
     }
 
     private Command createFindCommand(String[] arguments, String argumentString) throws InvalidArgumentException {
-        checkMinArgumentLength(arguments.length, FindCommand.MIN_ARGUMENT_LENGTH, Ui.ERROR_INVALID_ARGUMENT_LENGTH);
+        checkMinArgumentLength(arguments.length, FindCommand.MIN_ARGUMENT_LENGTH, Ui.ERROR_FIND_ARGUMENT);
         return new FindCommand(argumentString);
     }
 
