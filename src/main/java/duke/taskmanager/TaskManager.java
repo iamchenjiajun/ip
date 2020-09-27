@@ -44,7 +44,7 @@ public class TaskManager {
         System.out.println("Here's the tasks containing '" + searchString + "':");
 
         ArrayList<Task> filteredTasks = (ArrayList<Task>) tasks.stream()
-                .filter((task) -> task.getDescription().contains(searchString))
+                .filter((task) -> task.getDescription().toLowerCase().contains(searchString.toLowerCase()))
                 .collect(Collectors.toList());
 
         for (int i = 0; i < filteredTasks.size(); i++) {
