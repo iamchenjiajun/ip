@@ -3,10 +3,11 @@ package duke.task;
 import duke.exception.DateTimeFormatException;
 import duke.ui.Ui;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
-public class Event extends Task {
+public class Event extends Task implements DatedTask {
     protected LocalDateTime atDateTime;
 
     public Event(String description, String at) throws DateTimeFormatException {
@@ -28,5 +29,10 @@ public class Event extends Task {
     public String toString() {
         String dateTimeString = atDateTime.format(DATETIME_PRINT_FORMATTER);
         return "[E]" + super.toString() + " (at: " + dateTimeString + ")";
+    }
+
+    @Override
+    public LocalDate getLocalDate() {
+        return atDateTime.toLocalDate();
     }
 }
