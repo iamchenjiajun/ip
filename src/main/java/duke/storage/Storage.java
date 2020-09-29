@@ -16,15 +16,30 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Represents a file used to store the tasks.
+ */
 public class Storage {
     private final String fileLocation;
     private final String fileName;
 
+    /**
+     * Initializes the location and name of the file.
+     *
+     * @param fileLocation Location of the directory containing the file.
+     * @param fileName Name of the file.
+     */
     public Storage(String fileLocation, String fileName) {
         this.fileLocation = fileLocation;
         this.fileName = fileName;
     }
 
+    /**
+     * Checks if the file named fileName exists at fileLocation.
+     * If the directories or file do not exist, the directories and file will be created.
+     *
+     * @throws IOException when creation of directories or file fails
+     */
     public void checkFileExists() throws IOException {
         if (!Files.exists(Path.of(fileLocation))) {
             Files.createDirectories(Path.of(fileLocation));
@@ -34,6 +49,15 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads and parses the file into an ArrayList of tasks.
+     * Returns the ArrayList containing the tasks.
+     *
+     * @return ArrayList containing Tasks.
+     * @throws FileNotFoundException If the file does not exist at fileLocation.
+     * @throws FileFormatException If the tasks stored in the file do not adhere to the given format.
+     * @throws DateTimeFormatException If the dates are in an invalid format.
+     */
     public ArrayList<Task> loadTasks() throws FileNotFoundException, FileFormatException, DateTimeFormatException {
         ArrayList<Task> tasks = new ArrayList<>();
 
@@ -67,6 +91,12 @@ public class Storage {
         return tasks;
     }
 
+    /**
+     * Saves an ArrayList of tasks to the file.
+     *
+     * @param tasks ArrayList containing Tasks.
+     * @throws IOException If there are write errors.
+     */
     public void saveTasks(ArrayList<Task> tasks) throws IOException {
         FileWriter fw = new FileWriter(fileLocation + fileName);
         for (Task task : tasks) {

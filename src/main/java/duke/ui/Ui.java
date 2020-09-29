@@ -2,6 +2,9 @@ package duke.ui;
 
 import java.util.Scanner;
 
+/**
+ * Represents the user interface that interacts with the user.
+ */
 public class Ui {
     public static final String DUKE_DIVIDER = ">>>>++----------------------------------";
     public static final String DUKE_GREETINGS = "Hello! I'm Duke!\n"
@@ -40,10 +43,16 @@ public class Ui {
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Prints a divider.
+     */
     public void showDivider() {
         System.out.println(DUKE_DIVIDER);
     }
 
+    /**
+     * Prints a greeting message.
+     */
     public void greet() {
         System.out.println(DUKE_LOGO);
         showDivider();
@@ -51,26 +60,46 @@ public class Ui {
         showDivider();
     }
 
+    /**
+     * Prints a bye message.
+     */
     public void showByeMessage() {
         System.out.println(DUKE_BYE);
     }
 
+    /**
+     * Prints a message indicating a successful load.
+     */
     public void showLoadSuccessful() {
         System.out.println(TASK_LOAD_SUCCESSFUL);
     }
 
+    /**
+     * Prints a message indicating a load error.
+     */
     public void showLoadError() {
         System.out.println(ERROR_TASK_LOAD);
     }
 
+    /**
+     * Prints a message indicating an error with the formatting of the file contents.
+     */
     public void showFileFormatError() {
         System.out.println(ERROR_TASK_FORMAT);
     }
 
+    /**
+     * Prints a message indicating a save error.
+     */
     public void showSaveError() {
         System.out.println(ERROR_TASK_SAVE);
     }
 
+    /**
+     * Returns a string representing a line of input from the user.
+     *
+     * @return Line of input from user.
+     */
     public String readCommand() {
         return scanner.nextLine();
     }

@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Represents a deadline created by the user.
+ */
 public class Deadline extends Task implements DatedTask {
     protected LocalDateTime byDateTime;
 
@@ -19,18 +22,34 @@ public class Deadline extends Task implements DatedTask {
         }
     }
 
+    /**
+     * Returns the string representation of the {@code Deadline} to be saved.
+     *
+     * @return String representation of the {@code Deadline} to be saved.
+     */
+    @Override
     public String toSaveString() {
         String isDoneString = (isDone ? "1" : "0");
         String dateTimeString = byDateTime.format(DATETIME_PARSE_FORMATTER);
         return "D | " + isDoneString + " | " + description + " | " + dateTimeString;
     }
 
+    /**
+     * Returns the string representation of the {@code Deadline} to be displayed.
+     *
+     * @return String representation of the {@code Deadline} to be displayed.
+     */
     @Override
     public String toString() {
         String dateTimeString = byDateTime.format(DATETIME_PRINT_FORMATTER);
         return "[D]" + super.toString() + " (by: " + dateTimeString + ")";
     }
 
+    /**
+     * Returns a LocalDate object obtained from the LocalDateTime field.
+     *
+     * @return LocalDate object.
+     */
     @Override
     public LocalDate getLocalDate() {
         return byDateTime.toLocalDate();
