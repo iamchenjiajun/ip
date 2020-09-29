@@ -1,7 +1,5 @@
 package duke.ui;
 
-import duke.task.Task;
-
 import java.util.Scanner;
 
 public class Ui {
@@ -30,6 +28,7 @@ public class Ui {
     public static final String ERROR_TASK_LOAD = "☹ OOPS!!! I'm sorry, but I couldn't load the tasks :-(";
     public static final String ERROR_TASK_FORMAT = "☹ OOPS!!! Your tasks are in the wrong format :-(";
     public static final String ERROR_TASK_SAVE = "☹ OOPS!!! I'm sorry, but I couldn't save the tasks :-(";
+    public static final String ERROR_FIND_ARGUMENT = "☹ OOPS!!! You need a search string to find!";
     public static final String ERROR_DATETIME_FORMAT = "☹ OOPS!!! Your date/time is in the wrong format :-(\n" +
             "The correct format is 'yyyy-MM-dd HH:mm'!";
     public static final String ERROR_DATE_FORMAT = "☹ OOPS!!! Your date is in the wrong format :-(\n" +

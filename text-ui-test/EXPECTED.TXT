@@ -171,6 +171,34 @@ Noted. I've removed this task:
 Now you have 3 tasks in the list
 >>>>++----------------------------------
 >>>>++----------------------------------
+1.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+2.[E][âœ“] go to school (at: Sep 29 2020 07:30)
+3.[E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! You need a search string to find!
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'x':
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'home':
+1.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'WORK':
+1.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'meet up':
+1.[E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's the tasks containing 'e':
+1.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+2.[E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
+>>>>++----------------------------------
+>>>>++----------------------------------
 Here's an overview of Sep 29 2020
 [E][âœ“] go to school (at: Sep 29 2020 07:30)
 [E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
