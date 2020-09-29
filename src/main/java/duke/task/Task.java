@@ -8,9 +8,9 @@ public abstract class Task {
     protected boolean isDone;
 
     /**
-     * Initializes the description of the task.
+     * Initializes the description of the {@code Task}.
      *
-     * @param description Description of the task.
+     * @param description Description of the {@code Task}.
      */
     public Task(String description) {
         this.description = description;
@@ -18,43 +18,43 @@ public abstract class Task {
     }
 
     /**
-     * Returns the String representing the state of the task.
-     * A tick is returned if the task is done,
-     * and a cross is returned if the task is not done.
+     * Returns the String representing the state of the {@code Task}.
+     * A tick is returned if the {@code Task} is done,
+     * and a cross is returned if the {@code Task} is not done.
      *
-     * @return String showing if the task was done.
+     * @return String showing if the {@code Task} was done.
      */
     public String getStatusIcon() {
         return (isDone ? "[✓]" : "[✗]");
     }
 
     /**
-     * Marks the task as done.
+     * Marks the {@code Task} as done.
      */
     public void markAsDone() {
         this.isDone = true;
     }
 
     /**
-     * Returns the description of the task.
+     * Returns the description of the {@code Task}.
      *
-     * @return Description of the task.
+     * @return Description of the {@code Task}.
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * Returns the string representation of the task to be saved.
+     * Returns the string representation of the {@code Task} to be saved.
      *
-     * @return String representation of the task to be saved.
+     * @return String representation of the {@code Task} to be saved.
      */
     public abstract String toSaveString();
 
     /**
-     * Returns the string representation of the task to be displayed.
+     * Returns the string representation of the {@code Task} to be displayed.
      *
-     * @return String representation of the task to be displayed.
+     * @return String representation of the {@code Task} to be displayed.
      */
     @Override
     public String toString() {
