@@ -104,7 +104,7 @@ public class Parser {
      * Returns an instance of {@code DateCommand} initialized by parsed arguments.
      *
      * @param arguments Array containing arguments.
-     * @return Initialized DateCommand
+     * @return Initialized DateCommand.
      * @throws InvalidArgumentException If the arguments are invalid.
      */
     private Command createDateCommand(String[] arguments) throws InvalidArgumentException {
