@@ -38,6 +38,13 @@ delete 6
 delete 0
 delete 4
 delete 1
+list
+find
+find x
+find home
+find WORK
+find meet up
+find e
 date 2020-09-29
 date
 date 2020-09-29 a
