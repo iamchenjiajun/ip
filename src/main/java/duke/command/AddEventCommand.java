@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.exception.DateTimeFormatException;
 import duke.taskmanager.TaskManager;
 import duke.storage.Storage;
 import duke.ui.Ui;
@@ -13,8 +14,9 @@ public class AddEventCommand extends Command {
         this.description = description;
         this.at = at;
     }
+
     @Override
-    public void execute(TaskManager taskManager, Ui ui, Storage storage) {
+    public void execute(TaskManager taskManager, Ui ui, Storage storage) throws DateTimeFormatException {
         taskManager.addEvent(description, at);
     }
 }
