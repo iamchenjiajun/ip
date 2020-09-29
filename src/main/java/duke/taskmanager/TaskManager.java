@@ -88,6 +88,11 @@ public class TaskManager {
         }
     }
 
+    /**
+     * Prints a list of tasks with description matching the search string.
+     *
+     * @param searchString Search string to match description of tasks.
+     */
     public void findTask(String searchString) {
         System.out.println("Here's the tasks containing '" + searchString + "':");
 

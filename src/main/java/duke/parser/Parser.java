@@ -163,6 +163,14 @@ public class Parser {
         return new AddEventCommand(description, eventDetails[1]);
     }
 
+    /**
+     * Returns an instance of {@code FindCommand} initialized by parsed arguments.
+     *
+     * @param arguments Array containing arguments.
+     * @param argumentString String containing arguments.
+     * @return Initialized FindCommand.
+     * @throws InvalidArgumentException If the arguments are invalid.
+     */
     private Command createFindCommand(String[] arguments, String argumentString) throws InvalidArgumentException {
         checkMinArgumentLength(arguments.length, FindCommand.MIN_ARGUMENT_LENGTH, Ui.ERROR_FIND_ARGUMENT);
         return new FindCommand(argumentString);
