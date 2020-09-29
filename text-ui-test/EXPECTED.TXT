@@ -190,7 +190,8 @@ Here's the tasks containing 'WORK':
 1.[D][âœ“] do homework (by: Sep 27 2020 23:59)
 >>>>++----------------------------------
 >>>>++----------------------------------
-Here's the tasks containing 'user stories':
+Here's the tasks containing 'meet up':
+1.[E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
 >>>>++----------------------------------
 >>>>++----------------------------------
 Here's the tasks containing 'e':

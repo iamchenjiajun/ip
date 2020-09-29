@@ -43,7 +43,7 @@ find
 find x
 find home
 find WORK
-find user stories
+find meet up
 find e
 date 2020-09-29
 date
