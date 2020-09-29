@@ -12,6 +12,10 @@ import duke.ui.Ui;
 
 import java.io.IOException;
 
+/**
+ * Represents the entry point of the Duke program.
+ * Initializes and manages the TaskManager, Ui and Storage, and handles user interaction.
+ */
 public class Duke {
     public static final String FILE_LOCATION = "./data/";
     public static final String FILE_NAME = "duke.txt";
@@ -20,6 +24,9 @@ public class Duke {
     private final Ui ui;
     private final Storage storage;
 
+    /**
+     * Starts the program by greeting the user and loading existing tasks from file.
+     */
     public Duke() {
         ui = new Ui();
         storage = new Storage(FILE_LOCATION, FILE_NAME);
@@ -41,6 +48,9 @@ public class Duke {
         }
     }
 
+    /**
+     * Starts the read-evaluate-print loop to read, parse and execute user input.
+     */
     public void run() {
         boolean isBye = false;
         Parser parser = new Parser();
