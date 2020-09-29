@@ -1,5 +1,8 @@
 package duke.task;
 
+/**
+ * Represents a deadline created by the user.
+ */
 public class Deadline extends Task {
     protected String by;
 
@@ -8,6 +11,7 @@ public class Deadline extends Task {
         this.by = by;
     }
 
+    @Override
     public String toSaveString() {
         String isDoneString = (isDone ? "1" : "0");
         return "D | " + isDoneString + " | " + description + " | " + by;
