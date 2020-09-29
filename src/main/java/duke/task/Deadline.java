@@ -45,6 +45,11 @@ public class Deadline extends Task implements DatedTask {
         return "[D]" + super.toString() + " (by: " + dateTimeString + ")";
     }
 
+    /**
+     * Returns a LocalDate object obtained from the LocalDateTime field.
+     *
+     * @return LocalDate object.
+     */
     @Override
     public LocalDate getLocalDate() {
         return byDateTime.toLocalDate();

@@ -45,6 +45,11 @@ public class Event extends Task implements DatedTask {
         return "[E]" + super.toString() + " (at: " + dateTimeString + ")";
     }
 
+    /**
+     * Returns a LocalDate object obtained from the LocalDateTime field.
+     *
+     * @return LocalDate object.
+     */
     @Override
     public LocalDate getLocalDate() {
         return atDateTime.toLocalDate();
