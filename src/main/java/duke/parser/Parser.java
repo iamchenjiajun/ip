@@ -96,6 +96,13 @@ public class Parser {
         return new DeleteCommand(deleteIndex - 1);
     }
 
+    /**
+     * Returns an instance of {@code DateCommand} initialized by parsed arguments.
+     *
+     * @param arguments Array containing arguments.
+     * @return Initialized DateCommand
+     * @throws InvalidArgumentException If the arguments are invalid.
+     */
     private Command createDateCommand(String[] arguments) throws InvalidArgumentException {
         checkExactArgumentLength(arguments.length, DateCommand.EXPECTED_ARGUMENT_LENGTH);
 

@@ -45,6 +45,12 @@ public class TaskManager {
         }
     }
 
+    /**
+     * Prints a list of tasks on a given date.
+     *
+     * @param date Date to print the tasks from.
+     * @throws DateTimeFormatException If the date is in an invalid format.
+     */
     public void printTasksOnDate(String date) throws DateTimeFormatException {
         LocalDate targetDate;
 
