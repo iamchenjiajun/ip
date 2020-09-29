@@ -1,5 +1,6 @@
 package duke.storage;
 
+import duke.exception.DateTimeFormatException;
 import duke.exception.FileFormatException;
 import duke.task.Deadline;
 import duke.task.Event;
@@ -55,8 +56,9 @@ public class Storage {
      * @return ArrayList containing Tasks.
      * @throws FileNotFoundException If the file does not exist at fileLocation.
      * @throws FileFormatException If the tasks stored in the file do not adhere to the given format.
+     * @throws DateTimeFormatException If the dates are in an invalid format.
      */
-    public ArrayList<Task> loadTasks() throws FileNotFoundException, FileFormatException {
+    public ArrayList<Task> loadTasks() throws FileNotFoundException, FileFormatException, DateTimeFormatException {
         ArrayList<Task> tasks = new ArrayList<>();
 
         File file = new File(fileLocation + fileName);

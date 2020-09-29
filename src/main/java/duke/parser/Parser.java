@@ -5,6 +5,7 @@ import duke.command.AddEventCommand;
 import duke.command.AddTodoCommand;
 import duke.command.ByeCommand;
 import duke.command.Command;
+import duke.command.DateCommand;
 import duke.command.DeleteCommand;
 import duke.command.DoneCommand;
 import duke.command.ListCommand;
@@ -44,6 +45,9 @@ public class Parser {
             break;
         case Command.COMMAND_DELETE:
             command = createDeleteCommand(arguments);
+            break;
+        case Command.COMMAND_DATE:
+            command = createDateCommand(arguments);
             break;
         case Command.COMMAND_ADD_TODO:
             command = createAddTodoCommand(arguments, argumentString);
@@ -90,6 +94,12 @@ public class Parser {
         int deleteIndex = Integer.parseInt(arguments[1]);
 
         return new DeleteCommand(deleteIndex - 1);
+    }
+
+    private Command createDateCommand(String[] arguments) throws InvalidArgumentException {
+        checkExactArgumentLength(arguments.length, DateCommand.EXPECTED_ARGUMENT_LENGTH);
+
+        return new DateCommand(arguments[1]);
     }
 
     /**

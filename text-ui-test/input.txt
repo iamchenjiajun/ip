@@ -1,7 +1,6 @@
 todo read book
-deadline do homework /by next monday
-list
-event go to school /at tomorrow 1pm
+deadline do homework /by 2020-09-27 23:59
+event go to school /at 2020-09-29 07:30
 list
 done 1
 done 3
@@ -15,10 +14,14 @@ deadline
 event
 deadline write user stories
 deadline write user stories /by
-deadline write user stories /by thursday
+deadline write user stories /by 2359
+deadline write user stories /by 2020-10-03 23:59
+deadline /by 2020-10-03 23:59
 event meet up with cs2113 group
 event meet up with cs2113 group /at
 event meet up with cs2113 group /at 11am
+event meet up with cs2113 group /at 2020-09-29 11:00
+event /at 2020-09-29 11:00
 hello world
 list
 done
@@ -33,6 +36,10 @@ done 2x
 list
 delete 6
 delete 0
-delete 5
+delete 4
 delete 1
+date 2020-09-29
+date
+date 2020-09-29 a
+date 2020
 bye

@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.exception.DateTimeFormatException;
 import duke.taskmanager.TaskManager;
 import duke.storage.Storage;
 import duke.ui.Ui;
@@ -25,7 +26,7 @@ public class AddDeadlineCommand extends Command {
      * @param storage A file storing the tasks.
      */
     @Override
-    public void execute(TaskManager taskManager, Ui ui, Storage storage) {
+    public void execute(TaskManager taskManager, Ui ui, Storage storage) throws DateTimeFormatException {
         taskManager.addDeadline(description, by);
     }
 }

@@ -1,5 +1,6 @@
 package duke.command;
 
+import duke.exception.DateTimeFormatException;
 import duke.exception.InvalidIndexException;
 import duke.taskmanager.TaskManager;
 import duke.storage.Storage;
@@ -16,6 +17,7 @@ public abstract class Command {
     public static final String COMMAND_ADD_DEADLINE = "deadline";
     public static final String COMMAND_ADD_EVENT = "event";
     public static final String COMMAND_DELETE = "delete";
+    public static final String COMMAND_DATE = "date";
 
     /**
      * Executes the command.
@@ -24,8 +26,10 @@ public abstract class Command {
      * @param ui Object representing the user interface.
      * @param storage A file storing the tasks.
      * @throws InvalidIndexException If the command tries to access an invalid index in the list of tasks.
+     * @throws DateTimeFormatException If the command provides a date in an invalid format.
      */
-    public abstract void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidIndexException;
+    public abstract void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidIndexException,
+            DateTimeFormatException;
 
     /**
      * Returns true if the {@code Command} is a {@code ByeCommand}.

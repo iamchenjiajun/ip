@@ -1,9 +1,16 @@
 package duke.task;
 
+import java.time.format.DateTimeFormatter;
+
 /**
  * Represents a task created by the user.
  */
 public abstract class Task {
+    public static final DateTimeFormatter DATE_PARSE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public static final DateTimeFormatter DATE_PRINT_FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy");
+    public static final DateTimeFormatter DATETIME_PARSE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    public static final DateTimeFormatter DATETIME_PRINT_FORMATTER = DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm");
+
     protected String description;
     protected boolean isDone;
 

@@ -1,14 +1,25 @@
 package duke.task;
 
+import duke.exception.DateTimeFormatException;
+import duke.ui.Ui;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
+
 /**
  * Represents an event created by the user.
  */
-public class Event extends Task {
-    protected String at;
+public class Event extends Task implements DatedTask {
+    protected LocalDateTime atDateTime;
 
-    public Event(String description, String at) {
+    public Event(String description, String at) throws DateTimeFormatException {
         super(description);
-        this.at = at;
+        try {
+            this.atDateTime = LocalDateTime.parse(at, DATETIME_PARSE_FORMATTER);
+        } catch (DateTimeParseException e) {
+            throw new DateTimeFormatException(Ui.ERROR_DATETIME_FORMAT);
+        }
     }
 
     /**
@@ -19,7 +30,8 @@ public class Event extends Task {
     @Override
     public String toSaveString() {
         String isDoneString = (isDone ? "1" : "0");
-        return "E | " + isDoneString + " | " + description + " | " + at;
+        String dateTimeString = atDateTime.format(DATETIME_PARSE_FORMATTER);
+        return "E | " + isDoneString + " | " + description + " | " + dateTimeString;
     }
 
     /**
@@ -29,6 +41,12 @@ public class Event extends Task {
      */
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (at: " + at + ")";
+        String dateTimeString = atDateTime.format(DATETIME_PRINT_FORMATTER);
+        return "[E]" + super.toString() + " (at: " + dateTimeString + ")";
+    }
+
+    @Override
+    public LocalDate getLocalDate() {
+        return atDateTime.toLocalDate();
     }
 }

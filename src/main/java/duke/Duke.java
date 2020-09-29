@@ -1,6 +1,7 @@
 package duke;
 
 import duke.command.Command;
+import duke.exception.DateTimeFormatException;
 import duke.exception.FileFormatException;
 import duke.exception.InvalidArgumentException;
 import duke.exception.InvalidIndexException;
@@ -43,6 +44,9 @@ public class Duke {
         } catch (FileFormatException e) {
             ui.showFileFormatError();
             taskManager = new TaskManager();
+        } catch (DateTimeFormatException e) {
+            System.out.println(e.getErrorMessage());
+            taskManager = new TaskManager();
         } finally {
             ui.showDivider();
         }
@@ -67,6 +71,8 @@ public class Duke {
             } catch (InvalidArgumentException e) {
                 System.out.println(e.getErrorMessage());
             } catch (InvalidIndexException e) {
+                System.out.println(e.getErrorMessage());
+            } catch (DateTimeFormatException e) {
                 System.out.println(e.getErrorMessage());
             }
             ui.showDivider();

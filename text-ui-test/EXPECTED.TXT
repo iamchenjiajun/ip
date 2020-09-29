@@ -17,20 +17,16 @@ Added read book as a Todo.
 >>>>++----------------------------------
 >>>>++----------------------------------
 Added do homework as a Deadline.
-[D][âœ—] do homework (by: next monday)
->>>>++----------------------------------
->>>>++----------------------------------
-1.[T][âœ—] read book
-2.[D][âœ—] do homework (by: next monday)
+[D][âœ—] do homework (by: Sep 27 2020 23:59)
 >>>>++----------------------------------
 >>>>++----------------------------------
 Added go to school as an Event.
-[E][âœ—] go to school (at: tomorrow 1pm)
+[E][âœ—] go to school (at: Sep 29 2020 07:30)
 >>>>++----------------------------------
 >>>>++----------------------------------
 1.[T][âœ—] read book
-2.[D][âœ—] do homework (by: next monday)
-3.[E][âœ—] go to school (at: tomorrow 1pm)
+2.[D][âœ—] do homework (by: Sep 27 2020 23:59)
+3.[E][âœ—] go to school (at: Sep 29 2020 07:30)
 >>>>++----------------------------------
 >>>>++----------------------------------
 Nice! I've marked this task as done:
@@ -38,25 +34,25 @@ Nice! I've marked this task as done:
 >>>>++----------------------------------
 >>>>++----------------------------------
 Nice! I've marked this task as done:
-[E][âœ“] go to school (at: tomorrow 1pm)
+[E][âœ“] go to school (at: Sep 29 2020 07:30)
 >>>>++----------------------------------
 >>>>++----------------------------------
 1.[T][âœ“] read book
-2.[D][âœ—] do homework (by: next monday)
-3.[E][âœ“] go to school (at: tomorrow 1pm)
+2.[D][âœ—] do homework (by: Sep 27 2020 23:59)
+3.[E][âœ“] go to school (at: Sep 29 2020 07:30)
 >>>>++----------------------------------
 >>>>++----------------------------------
 Nice! I've marked this task as done:
-[D][âœ“] do homework (by: next monday)
+[D][âœ“] do homework (by: Sep 27 2020 23:59)
 >>>>++----------------------------------
 >>>>++----------------------------------
 Nice! I've marked this task as done:
-[D][âœ“] do homework (by: next monday)
+[D][âœ“] do homework (by: Sep 27 2020 23:59)
 >>>>++----------------------------------
 >>>>++----------------------------------
 1.[T][âœ“] read book
-2.[D][âœ“] do homework (by: next monday)
-3.[E][âœ“] go to school (at: tomorrow 1pm)
+2.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+3.[E][âœ“] go to school (at: Sep 29 2020 07:30)
 >>>>++----------------------------------
 >>>>++----------------------------------
 â˜¹ OOPS!!! The description of a Todo cannot be empty.
@@ -77,28 +73,42 @@ Nice! I've marked this task as done:
 â˜¹ OOPS!!! Your Deadline doesn't contain a deadline!
 >>>>++----------------------------------
 >>>>++----------------------------------
+â˜¹ OOPS!!! Your date/time is in the wrong format :-(
+The correct format is 'yyyy-MM-dd HH:mm'!
+>>>>++----------------------------------
+>>>>++----------------------------------
 Added write user stories as a Deadline.
-[D][âœ—] write user stories (by: thursday)
+[D][âœ—] write user stories (by: Oct 03 2020 23:59)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your Deadline doesn't contain a deadline!
 >>>>++----------------------------------
 >>>>++----------------------------------
 â˜¹ OOPS!!! Your Event doesn't contain a date
 >>>>++----------------------------------
 >>>>++----------------------------------
 â˜¹ OOPS!!! Your Event doesn't contain a date
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your date/time is in the wrong format :-(
+The correct format is 'yyyy-MM-dd HH:mm'!
 >>>>++----------------------------------
 >>>>++----------------------------------
 Added meet up with cs2113 group as an Event.
-[E][âœ—] meet up with cs2113 group (at: 11am)
+[E][âœ—] meet up with cs2113 group (at: Sep 29 2020 11:00)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your Event doesn't contain a date
 >>>>++----------------------------------
 >>>>++----------------------------------
 â˜¹ OOPS!!! I'm sorry, but I don't know what that means :-(
 >>>>++----------------------------------
 >>>>++----------------------------------
 1.[T][âœ“] read book
-2.[D][âœ“] do homework (by: next monday)
-3.[E][âœ“] go to school (at: tomorrow 1pm)
-4.[D][âœ—] write user stories (by: thursday)
-5.[E][âœ—] meet up with cs2113 group (at: 11am)
+2.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+3.[E][âœ“] go to school (at: Sep 29 2020 07:30)
+4.[D][âœ—] write user stories (by: Oct 03 2020 23:59)
+5.[E][âœ—] meet up with cs2113 group (at: Sep 29 2020 11:00)
 >>>>++----------------------------------
 >>>>++----------------------------------
 â˜¹ OOPS!!! You have an invalid number of arguments!
@@ -111,25 +121,25 @@ Added meet up with cs2113 group as an Event.
 >>>>++----------------------------------
 >>>>++----------------------------------
 1.[T][âœ“] read book
-2.[D][âœ“] do homework (by: next monday)
-3.[E][âœ“] go to school (at: tomorrow 1pm)
-4.[D][âœ—] write user stories (by: thursday)
-5.[E][âœ—] meet up with cs2113 group (at: 11am)
+2.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+3.[E][âœ“] go to school (at: Sep 29 2020 07:30)
+4.[D][âœ—] write user stories (by: Oct 03 2020 23:59)
+5.[E][âœ—] meet up with cs2113 group (at: Sep 29 2020 11:00)
 >>>>++----------------------------------
 >>>>++----------------------------------
 Nice! I've marked this task as done:
-[E][âœ“] meet up with cs2113 group (at: 11am)
+[E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
 >>>>++----------------------------------
 >>>>++----------------------------------
 Nice! I've marked this task as done:
-[D][âœ“] write user stories (by: thursday)
+[D][âœ“] write user stories (by: Oct 03 2020 23:59)
 >>>>++----------------------------------
 >>>>++----------------------------------
 1.[T][âœ“] read book
-2.[D][âœ“] do homework (by: next monday)
-3.[E][âœ“] go to school (at: tomorrow 1pm)
-4.[D][âœ“] write user stories (by: thursday)
-5.[E][âœ“] meet up with cs2113 group (at: 11am)
+2.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+3.[E][âœ“] go to school (at: Sep 29 2020 07:30)
+4.[D][âœ“] write user stories (by: Oct 03 2020 23:59)
+5.[E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
 >>>>++----------------------------------
 >>>>++----------------------------------
 â˜¹ OOPS!!! Your done argument is invalid!
@@ -139,10 +149,10 @@ Nice! I've marked this task as done:
 >>>>++----------------------------------
 >>>>++----------------------------------
 1.[T][âœ“] read book
-2.[D][âœ“] do homework (by: next monday)
-3.[E][âœ“] go to school (at: tomorrow 1pm)
-4.[D][âœ“] write user stories (by: thursday)
-5.[E][âœ“] meet up with cs2113 group (at: 11am)
+2.[D][âœ“] do homework (by: Sep 27 2020 23:59)
+3.[E][âœ“] go to school (at: Sep 29 2020 07:30)
+4.[D][âœ“] write user stories (by: Oct 03 2020 23:59)
+5.[E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
 >>>>++----------------------------------
 >>>>++----------------------------------
 â˜¹ OOPS!!! Your delete argument is invalid!
@@ -152,13 +162,28 @@ Nice! I've marked this task as done:
 >>>>++----------------------------------
 >>>>++----------------------------------
 Noted. I've removed this task:
-[E][âœ“] meet up with cs2113 group (at: 11am)
+[D][âœ“] write user stories (by: Oct 03 2020 23:59)
 Now you have 4 tasks in the list
 >>>>++----------------------------------
 >>>>++----------------------------------
 Noted. I've removed this task:
 [T][âœ“] read book
 Now you have 3 tasks in the list
+>>>>++----------------------------------
+>>>>++----------------------------------
+Here's an overview of Sep 29 2020
+[E][âœ“] go to school (at: Sep 29 2020 07:30)
+[E][âœ“] meet up with cs2113 group (at: Sep 29 2020 11:00)
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! You have an invalid number of arguments!
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! You have an invalid number of arguments!
+>>>>++----------------------------------
+>>>>++----------------------------------
+â˜¹ OOPS!!! Your date is in the wrong format :-(
+The correct format is 'yyyy-MM-dd'!
 >>>>++----------------------------------
 >>>>++----------------------------------
 Bye. Hope to see you again soon!
