@@ -2,6 +2,17 @@
 
 Duke is an interactive task management program which allows the user to store and manage tasks interactively.
 
+## Launching Duke
+
+After navigating to the folder containing `duke.jar` in the shell, run the following command.
+
+`java -jar duke.jar`
+
+Duke saves the task lists to a file with the relative directory `./data/duke.txt`.
+
+If the directory and/or file does not exist when Duke launches, Duke creates the directory and/or file before
+loading the file.
+
 ## Features 
 
 ### Adding Tasks
@@ -174,3 +185,17 @@ Output:
 Bye. Hope to see you again soon!
 >>>>++----------------------------------
 ```
+
+## Quick Command Reference
+
+Action | Command | Example
+------------ | ------------ | -------------
+Add todo | `todo <description>` | `todo read book`
+Add deadline | `deadline <description> /by <yyyy-MM-dd HH:mm>` | `deadline ip final submission /by 2020-10-02 23:59`
+Add event | `event <description> /at <yyyy-MM-dd HH:mm>` | `event consultation meeting with prof /at 2020-10-07 16:00`
+Listing tasks | `list` | `list`
+Mark task as done | `done <index>` | `done 1`
+Delete task | `delete <index>` | `delete 7`
+Finding tasks | `find <search string>` | `find meeting`
+Date overview | `date <yyyy-MM-dd>` | `date 2020-10-7`
+Exit Duke | `bye` | `bye`
