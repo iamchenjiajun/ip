@@ -92,6 +92,8 @@ Output:
 
 Marks a task as "Done" at a given index.
 
+:triangular_flag_on_post:: The list is **one-indexed** and corresponds to the indexes on `list` command output.
+
 `done <index>` - Marks the task at the given index as "Done".
 
 Example:
@@ -111,6 +113,8 @@ Nice! I've marked this task as done:
 
 Deletes a task at a given index.
 
+:triangular_flag_on_post:: The list is **one-indexed** and corresponds to the indexes on `list` command output.
+
 `delete <index>` - Deletes the task at the given index.
 
 Example:
@@ -129,9 +133,9 @@ Now you have 8 tasks in the list
 
 ### Finding Tasks
 
-Prints a list of tasks with description that matches a keyword.
+Prints a list of tasks with description matching a keyword.
 
-:information_source: The command uses **case-insensitive** matching.
+:triangular_flag_on_post:: The command uses **case-insensitive** matching.
 
 `find <search string>` - Searches the list for tasks that contains the search string in the description.
 
@@ -152,7 +156,7 @@ Here's the tasks containing 'meeting':
 
 ### Listing tasks with given date
 
-Prints a list of tasks that matches the given date.
+Prints an overview of tasks matching the given date.
 
 `date <yyyy-MM-dd>` - Searches the list for tasks that has a date yyyy-MM-dd
 
