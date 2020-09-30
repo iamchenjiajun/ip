@@ -120,6 +120,8 @@ Now you have 8 tasks in the list
 
 Prints a list of tasks with description that matches a keyword.
 
+:information_source: The command uses **case-insensitive** matching.
+
 `find <search string>` - Searches the list for tasks that contains the search string in the description.
 
 Example:
@@ -134,6 +136,26 @@ Here's the tasks containing 'meeting':
 1.[E][✓] cs2113 meeting (at: Dec 05 2020 11:30)
 2.[E][✗] consultation meeting with prof (at: Oct 07 2020 16:00)
 3.[T][✗] set up a meeting with academic advisor
+>>>>++----------------------------------
+```
+
+### Listing tasks with given date
+
+Prints a list of tasks that matches the given date.
+
+`date <yyyy-MM-dd>` - Searches the list for tasks that has a date yyyy-MM-dd
+
+Example:
+
+`date 2020-10-07`
+
+Output:
+
+```
+>>>>++----------------------------------
+Here's an overview of Oct 07 2020
+[E][✗] consultation meeting with prof (at: Oct 07 2020 16:00)
+[E][✗] collect lab kit (at: Oct 07 2020 14:00)
 >>>>++----------------------------------
 ```
 
