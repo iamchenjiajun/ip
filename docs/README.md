@@ -1,8 +1,11 @@
 # Duke User Guide
 
-Duke is an interactive task management program which allows the user to store and manage tasks interactively.
+Duke is an interactive task management program which allows the user to store and manage tasks using a command-line
+interface.
 
 ## Launching Duke
+
+Requirements: `Java 11`
 
 After navigating to the folder containing `duke.jar` in the shell, run the following command.
 
@@ -15,11 +18,13 @@ loading the file.
 
 ## Features 
 
-### Adding Tasks
+### Adding Tasks: `todo`/`deadline`/`event`
 
 Adds a task to the list of tasks.
 
 There are several types of tasks that can be added, such as a Todo, Deadline or Event.
+
+Usage:
 
 `todo <description>` - Adds a todo to the list.
 
@@ -66,9 +71,11 @@ Added consultation meeting with prof as an Event.
 >>>>++----------------------------------
 ```
 
-### Listing Tasks
+### Listing Tasks: `list`
 
 Lists all the tasks that are tracked by Duke.
+
+Usage:
 
 `list` - Lists all tasks.
 
@@ -88,11 +95,13 @@ Output:
 >>>>++----------------------------------
 ```
 
-### Marking Tasks as "Done"
+### Marking Tasks as "Done": `done`
 
 Marks a task as "Done" at a given index.
 
-:triangular_flag_on_post:: The list is **one-indexed** and corresponds to the indexes on `list` command output.
+:triangular_flag_on_post: The list is **one-indexed** and corresponds to the indexes on `list` command output.
+
+Usage:
 
 `done <index>` - Marks the task at the given index as "Done".
 
@@ -109,11 +118,13 @@ Nice! I've marked this task as done:
 >>>>++----------------------------------
 ```
 
-### Deleting Tasks
+### Deleting Tasks: `delete`
 
 Deletes a task at a given index.
 
-:triangular_flag_on_post:: The list is **one-indexed** and corresponds to the indexes on `list` command output.
+:triangular_flag_on_post: The list is **one-indexed** and corresponds to the indexes on `list` command output.
+
+Usage:
 
 `delete <index>` - Deletes the task at the given index.
 
@@ -131,11 +142,13 @@ Now you have 8 tasks in the list
 >>>>++----------------------------------
 ```
 
-### Finding Tasks
+### Finding Tasks: `find`
 
 Prints a list of tasks with description matching a keyword.
 
-:triangular_flag_on_post:: The command uses **case-insensitive** matching.
+:triangular_flag_on_post: The command uses **case-insensitive** matching.
+
+Usage:
 
 `find <search string>` - Searches the list for tasks that contains the search string in the description.
 
@@ -154,11 +167,13 @@ Here's the tasks containing 'meeting':
 >>>>++----------------------------------
 ```
 
-### Listing tasks with given date
+### Listing tasks with given date: `date`
 
 Prints an overview of tasks matching the given date.
 
-`date <yyyy-MM-dd>` - Searches the list for tasks that has a date yyyy-MM-dd
+Usage:
+
+`date <yyyy-MM-dd>` - Searches the list for tasks that has a date yyyy-MM-dd.
 
 Example:
 
@@ -174,9 +189,13 @@ Here's an overview of Oct 07 2020
 >>>>++----------------------------------
 ```
 
-### Exiting Duke
+### Exiting Duke: `bye`
 
 Saves the existing list of tasks to a file and terminates the program.
+
+Usage:
+
+`bye` - Saves the task list and exits the program.
 
 Example:
 
