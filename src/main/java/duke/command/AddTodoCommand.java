@@ -25,5 +25,6 @@ public class AddTodoCommand extends Command {
     @Override
     public void execute(TaskManager taskManager, Ui ui, Storage storage) {
         taskManager.addTodo(description);
+        saveTasks(taskManager, ui, storage);
     }
 }

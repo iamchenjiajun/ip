@@ -4,8 +4,6 @@ import duke.taskmanager.TaskManager;
 import duke.storage.Storage;
 import duke.ui.Ui;
 
-import java.io.IOException;
-
 /**
  * Represents a command that terminates the program.
  */
@@ -19,12 +17,8 @@ public class ByeCommand extends Command {
      */
     @Override
     public void execute(TaskManager taskManager, Ui ui, Storage storage) {
-        try {
-            ui.showByeMessage();
-            storage.saveTasks(taskManager.getTasks());
-        } catch (IOException e) {
-            ui.showSaveError();
-        }
+        ui.showByeMessage();
+        saveTasks(taskManager, ui, storage);
     }
 
     /**

@@ -6,6 +6,8 @@ import duke.taskmanager.TaskManager;
 import duke.storage.Storage;
 import duke.ui.Ui;
 
+import java.io.IOException;
+
 /**
  * Represents a command with parameters corresponding to user input.
  */
@@ -31,6 +33,21 @@ public abstract class Command {
      */
     public abstract void execute(TaskManager taskManager, Ui ui, Storage storage) throws InvalidIndexException,
             DateTimeFormatException;
+
+    /**
+     * Saves the tasks to file.
+     *
+     * @param taskManager Object managing the list of tasks.
+     * @param ui Object representing the user interface.
+     * @param storage A file storing the tasks.
+     */
+    public void saveTasks(TaskManager taskManager, Ui ui, Storage storage) {
+        try {
+            storage.saveTasks(taskManager.getTasks());
+        } catch (IOException e) {
+            ui.showSaveError();
+        }
+    }
 
     /**
      * Returns true if the {@code Command} is a {@code ByeCommand}.

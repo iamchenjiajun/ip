@@ -29,5 +29,6 @@ public class AddEventCommand extends Command {
     @Override
     public void execute(TaskManager taskManager, Ui ui, Storage storage) throws DateTimeFormatException {
         taskManager.addEvent(description, at);
+        saveTasks(taskManager, ui, storage);
     }
 }
