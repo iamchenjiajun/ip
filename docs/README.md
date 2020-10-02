@@ -7,14 +7,17 @@ interface.
 
 Requirements: `Java 11`
 
-After navigating to the folder containing `duke.jar` in the shell, run the following command.
+After navigating to the folder containing `Duke.jar` in the shell, run the following command.
 
-`java -jar duke.jar`
+`java -jar Duke.jar`
 
 Duke saves the task lists to a file with the relative directory `./data/duke.txt`.
 
-If the directory and/or file does not exist when Duke launches, Duke creates the directory and/or file before
+:triangular_flag_on_post: If the directory and/or file does not exist when Duke launches, Duke creates the directory and/or file before
 loading the file.
+
+:triangular_flag_on_post: If the ticks and crosses are not displayed correctly, try running the command `chcp 65001` on Windows systems before
+running `Duke.jar` with `java -Dfile.encoding=UTF-8 -jar Duke.jar`.
 
 ## Features 
 
